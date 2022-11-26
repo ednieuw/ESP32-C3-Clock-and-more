@@ -1,6 +1,7 @@
 # ESP32-C3-Clock-and-more
 
-In progress
+<h2> The project is still in progress but almost finished with V008 </h2>
+
 https://ednieuw.home.xs4all.nl/Woordklok/ESP32C3AndMore/ESP32C3ClockAndMoreV.html
 
 <body>
