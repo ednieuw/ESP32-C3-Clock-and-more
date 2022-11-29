@@ -1,13 +1,7 @@
-# ESP32-C3-Clock-and-more
-
-<h2> The project is still in progress but almost finished with V008 </h2>
-
-https://ednieuw.home.xs4all.nl/Woordklok/ESP32C3AndMore/ESP32C3ClockAndMoreV.html
-
-<body>
-<h1 class="auto-style10">ESP32-C3 Clock, HTML page, NTP, BLE to phone and more </h1>
+<h1 class="auto-style10">ESP32-C3-12F Clock, HTML page, NTP, BLE to phone and more </h1>
 
 <p class="auto-style10"><strong><a href="../index.html">Home</a></strong></p>
+<p><img alt="4-displays" src="Pics/4-displays.jpg" width="900" /></p>
 <p><span class="auto-style10">A small clock that displays the time in words in Dutch, English, French and 
 German.<br />The clock is able to receive time 
 via NTP from the internet. <br />
@@ -21,20 +15,23 @@ updates on Github</a> </span> </p>
 and IDE 2.0.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">The software contains coding to use the:</span><br class="auto-style10" />
-<span class="auto-style10">1 ILI9314 colour display (in progress)<br />
-2 BLE nRF UART connection with an option to send strings longer than 20 bytes</span><br class="auto-style10" />
+<span class="auto-style10">1 ILI9314 colour display<br />
+2 BLE nRF UART connection with a phone with an option to send strings longer than 20 bytes</span><br class="auto-style10" />
 <span class="auto-style10">3 Time zone corrected time with daylight savings from a NTP server via WIFI</span><br class="auto-style10" />
-<span class="auto-style10">4 RGB LED control on the MVU</span><br class="auto-style10" />
+<span class="auto-style10">4 RGBCW LED control on the MCU board</span><br class="auto-style10" />
 <span class="auto-style10">5 RTC for time keeping when off line</span><br class="auto-style10" />
-<span class="auto-style10">6 LDR analogue readings&nbsp; (in progress)</span><br class="auto-style10" />
+<span class="auto-style10">6 LDR analogue readings&nbsp;and control of display 
+intensity</span><br class="auto-style10" />
 <span class="auto-style10">7 Storage of the settings in the ESP32-C3 SPIFSS Flash memory</span><br class="auto-style10" />
 <span class="auto-style10">8 Menu driven control of preferences with serial monitor, BLE and WIFI-html page</span><br class="auto-style10" />
 <span class="auto-style10">9&nbsp;Four languages to display time<br />
-10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock&nbsp; (in progress)</span></p>
+10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock (in V010 and 
+higher)</span></p>
 <p style="width: 840px"><br class="auto-style10" />
 <table class="auto-style12">
 <tr>
-<td style="width: 248px" valign="bottom"><span class="auto-style3">Het was tien over tien 10:13:00</span><br class="auto-style3" />
+<td style="width: 248px" valign="bottom"><span class="auto-style3"><br />
+Het was tien over tien 10:13:00</span><br class="auto-style3" />
 <span class="auto-style3">Il est dix heures et quart 10:14:00</span><br class="auto-style3" />
 <span class="auto-style3">Il est dix heures et quart 10:15:00</span><br class="auto-style3" />
 <span class="auto-style3">Het is kwart over tien 10:16:00</span><br class="auto-style3" />
@@ -48,17 +45,125 @@ and IDE 2.0.</span><br class="auto-style10" />
 <span class="auto-style3">Het is vijf voor half elf 10:24:00</span><br class="auto-style3" />
 <span class="auto-style3">Es ist funf vor halb elf 10:25:00</span><br class="auto-style3" />
 <span class="auto-style3">It is twenty five past ten 10:26:00</span><br class="auto-style3" />
-<span class="auto-style3">Es war funf vor halb elf 10:27:00</span></td>
+<span class="auto-style3">Es war funf vor halb elf 10:27:00<br />
+<br />
+</span></td>
 <td>
-<img alt="MS phone and iPhone8" src="Pics/MS_IP8.jpg" width="450" class="auto-style10" /></td>
+<span class="auto-style3">
+<img alt="Bare clock" height="332" src="Pics/BareClock.JPG" width="378" /></span></td>
 </tr>
 <tr>
-<td style="width: 248px" class="auto-style10">Display of the time in the serial output</td>
-<td class="auto-style10">HTML page in iPhone 8 and Microsoft Phone</td>
+<td class="auto-style10" colspan="2">Display of the time in the serial output</td>
 </tr>
 </table>
 <br class="auto-style10" />
-<strong><span class="auto-style10">First Use</span><br class="auto-style10" />
+</p>
+<p style="width: 840px" class="auto-style10"><strong>Introduction</strong><br />
+The ESP32-C3-12F is a cheap, versatile Micro Computer Unit (MCU). <br />
+Competitors at this moment, end 2022, I have played with are the Arduino MKR1010 
+and IOT 33, the Arduino RP2040 Connect and Raspberry Pico W.<br />
+The RP2040 Connect is my favorite while it pins are compatible with the Arduino 
+Nano / Every and my designed printed circuit boards (PCB) can still be used., it has a lot a memory and more than enough speed 
+for my projects<br />
+A <a href="../Pocuter/PocuterWordClockV.html">kickstarter project</a> using the 
+ESP32-C3 with an OLED display forced me to study this architecture. <br />
+A piece of cake was my first thought and I started to convert the word clock 
+into the ESP-C3.<br />
+The source code for an Arduino also compiles and uploads with the Arduino IDE 
+for the ESP32-C3.<br />
+But almost all libraries are different and changing from 5V and 3.3V was needed.
+<br />
+The result is the program below.&nbsp; <br />
+Everything works and the time is displayed in words in the display.<br />
+The program's origin was a <a href="../Bouwpakket/WoordklokWitteLEDs.html">word 
+clock running with an ATMEGA328 </a>processor. The software was then converted 
+to be used with <a href="../Bouwpakket/WoordklokSK6812.htm">SK6812 RGBW</a> or<a href="../Bouwpakket/Woordklok-Kleur.htm">WS2812 
+RGB</a> LED-strips. Time was received with a DCF77 receiver.<br />
+<br />
+This ESP32-C3 program is able to connect to a NTP service on the internet and is 
+attached to an ILI9314 display to print the time as text. The ILI9341 colour display is, around €10, very cheap 
+but not very fast. For this clock it is not an issue<br />
+Settings can be changed via 
+Bluetooth on a phone or with a webpage in a browser. <br />
+In both cases no cloud 
+service is used or needed to operate this clock.&nbsp;</p>
+<h2 style="width: 840px"><strong>Hardware</strong></h2>
+<p style="width: 840px" class="auto-style10"><strong>Materials<br />
+- </strong>ESP32-C3-12F<br />
+- ILI9341 display<br />
+- LDR (Light Dependent Resistor) type GL5516 or GL5528<br />
+- Resistors 1 kOhm, 10 kOhm and optional 22 kOhm<br />
+- 2N2222 or 2N3906 PNP transistor <strong><br />
+</strong>
+<span class="auto-style10">- For IOS:&nbsp;
+<a href="https://apps.apple.com/nl/app/ble-serial-pro/id1632245655?l=en">BLE 
+Serial Pro</a>. (Turn on Fast BLE with option Z in the menu)</span><br />
+<span class="auto-style10">- For Android :
+<a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal">
+Serial Bluetooth terminal</a>. (Turn off (default) Fast BLE)</span></p>
+<p style="width: 840px" class="auto-style10">The program 
+'ESP32C3-WordClockV010.ino' or newer can be uploaded in the 
+ESP32-C3-12F with the Arduino IDE 1.8.19 or newer. The Arduino IDE 2.0.2 
+(November 2022) was not able to compile this program due to a bug in the IDE.<strong> 
+<br />
+<br />
+<img alt="Boardmanager" src="Pics/BoardURLs.jpg" /></strong></p>
+<p style="width: 840px" class="auto-style10"><br />
+Add the string in Additional Boards Manager URLs in File-&gt; Preference of the IDE<strong><br />
+</strong><span class="auto-style11"><span class="auto-style13">
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+</span><br />
+<br />
+</span>Restart the IDE and install the ESP32 boards<br />
+<br />
+Choose the ESP32C3 Dev Module' as board and set the partition scheme to huge'
+<br />
+in the IDE menu --&gt; Tools.</p>
+<p style="width: 840px" class="auto-style10"><strong> <br />
+<img alt="IDE settings" src="Pics/Boardsettings.gif" /><br />
+<br />
+</strong>If the program compiles without errors and uploads into the ESP-C3 the 
+hardware can be connected to the board.<br />
+&nbsp;<strong><br />
+</strong>Connect the DC/RS, RST, MOSI, SCK to respectively GPIO pins 06, 07, 08 and 09.<br />
+MISO is not used because no data comes back from the display. <br />
+CS is connected to GND. <br />
+<img alt="ESP32-C3-12F connections" src="Pics/ESP32-C3-12F_layout.jpg" /><br />
+<br />
+To control the brightness of a connected LED-strip or the back light of the 
+display a LDR measures the 
+luminosity and dims the LEDs or back light accordingly by PWM on the pin that 
+powers the back light or changes the RGBW LED intensity in the software. <br />
+<br />
+If no LDR is attached 
+set the minimum light intensity to 250 in the menu and the maximum to 254.<br />
+<br />
+The back light of the ILI9341 uses 50 - 100 mA and the pins of the ESP32-C3-12F 
+supply 12mA (or 40mA?). Therefore a 2N2222 PNP transistor is used. A BC327 did 
+not work. Probably 3V3 is too less to switch the transistor. A 2N3906 may also 
+work.<br />
+Connect the 1 kOhm resistor to pin GPIO 01 that controls the intensity of the 
+backlight.<br />
+<br />
+<img alt="PWM 2N2222" src="Pics/2N2222.jpg" width="650" /><br />
+</p>
+<p style="width: 840px" class="auto-style10">The LDR is connected via a 10 - 22 
+kOhm LDR to ground. The pin A2 is connected to GPIO 02.</p>
+<p style="width: 840px" class="auto-style10">With option K in the menu display 
+of the LDR readings are printed every second. With the options minimum, maximum 
+and slope in the menu the light intensity of the display can be controlled<br />
+<br />
+<a href="../LDR/GL55xxLDRs.html">More about the LDR and it types</a><br />
+</p>
+<p style="width: 840px" class="auto-style10">
+<img alt="LDR schakeling" src="Pics/LDR.jpg" width="391" /></p>
+<p style="width: 840px" class="auto-style10">Connecting the LDR to GPIO 00 
+failed. The pin did not go low to 0V. It is used for WIFI?<br />
+Almost all&nbsp; the pins are used now. GPIO 03, 04, 05, 18 and 19 are used for the LEDs on 
+the MCU. GPIO 20 and 21 are probably used for the serial USB connection. <br />
+&nbsp; <br />
+</p>
+<p style="width: 840px"><strong><span class="auto-style10">First Use</span><br class="auto-style10" />
 </strong><span class="auto-style10">When the MCU is started and running properly the LED on the 
 board will pulse red every second. 
 </span> 
@@ -69,15 +174,15 @@ board will pulse red every second.
 the top right button to see the ip-address, time and date of the clock .
 </span>
 <br class="auto-style10" />
-<span class="auto-style10">Date and ip-address will disappear as a new minute starts.</span><br class="auto-style10" />
-<span class="auto-style10">Enter the ip-address in a browser or connect 
+<span class="auto-style10">Date and IP-address will disappear as a new minute starts.</span><br class="auto-style10" />
+<span class="auto-style10">Enter the IP-address in a browser or connect 
 via Bluetooth and send the character 'I' to see for the menu.</span><br class="auto-style10" />
 <span class="auto-style10">In the menu the name of the router to connect to, the SSID, and its password can 
 be entered. </span> <br class="auto-style10" />
 <br class="auto-style10" />
 <img alt="IP-address" src="Pics/img9.gif" class="auto-style10" /><br class="auto-style10" />
 </p>
-<p><span class="auto-style10"><strong>Installations</strong>&nbsp;
+<p><span class="auto-style10"><strong>Control of the clock</strong>&nbsp;
 </span>
 <br class="auto-style10" />
 <br class="auto-style10" />
@@ -85,8 +190,9 @@ be entered. </span> <br class="auto-style10" />
 server. </span> <br class="auto-style10" />
 <span class="auto-style10">The time zone is set to UTC+1 Amsterdam but can be changed in the menu.</span><br class="auto-style10" />
 <span class="auto-style10">To connect to a WIFI network a SSID and password must be entered.</span><br class="auto-style10" />
-<span class="auto-style10">There are a few methods:</span><br class="auto-style10" />
-<span class="auto-style10">- Connect the MCU with a serial cable to a PC and use a serial terminal. I 
+<span class="auto-style10"><br />
+There are a few methods:</span><br class="auto-style10" />
+<span class="auto-style10">1. Connect the MCU with a serial cable to a PC and use a serial terminal. I 
 use the Arduino IDE or <a href="https://www.compuphase.com/software_termite.htm">
 Termite</a> as serial terminal.</span><br class="auto-style10" />
 <br class="auto-style10" />
@@ -101,9 +207,9 @@ settings of several preferences</span></p>
 <img alt="Termite terminal" src="Pics/Termite.jpg" width="400" class="auto-style10" /></td>
 </tr>
 <tr>
-<td style="width: 342px" class="auto-style10">HTML page on iPhone </td>
+<td style="width: 342px" class="auto-style10">HTML page on iPhone.</td>
 <td style="width: 415px"><br class="auto-style10" />
-<span class="auto-style10">Termite Terminal from a PC</span></td>
+<span class="auto-style10">Termite Terminal on a PC</span></td>
 </tr>
 </table>
 <br class="auto-style10" />
@@ -111,17 +217,18 @@ settings of several preferences</span></p>
 <table style="width: 919px">
 <tr>
 <td style="width: 550px">
-<p><span class="auto-style10">- USE the BLE nRF connection with an UART serial terminal app 
+<p><span class="auto-style10">2. USE the BLE nRF connection with an UART serial terminal app 
 to control it with your mobile phone or tablet.</span><br class="auto-style10" />
-<span class="auto-style10">Use the IOS app:&nbsp;
+<span class="auto-style10"><br />
+Use the IOS app for iPhone or iPad:&nbsp;
 <a href="https://apps.apple.com/nl/app/ble-serial-pro/id1632245655?l=en">BLE 
 Serial Pro</a>. <br />
-Turn on Fast BLE with option Z.</span><br class="auto-style10" />
+Turn on Fast BLE with option Z in the menu.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">For Android use:
 <a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal">
 Serial Bluetooth terminal</a>. <br />
-Turn off (default) Fast BLE.</span>
+Turn off (default) Fast BLE in the menu.</span>
 </p>
 <p>
 <br class="auto-style10" /><span class="auto-style10">Start the 
@@ -129,9 +236,9 @@ app and find the MCU in the list of devices and connect to it. You
 can change it's beacon name in the menu with option C.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">In both cases 
-<strong>send the letter I 
+<strong>send the character I 
 of Information and the menu shows up</strong></span>.<br class="auto-style10" />
-<span class="auto-style10">Enter the first letter of the setting you want to changes followed with a code.</span><br class="auto-style10" />
+<span class="auto-style10">Enter the first character of the setting you want to changes followed with a code.</span><br class="auto-style10" />
 <span class="auto-style10">Some entries just toggle On and Off. Like the W to set WIFI Off or On. 
 </span> 
 </p>
@@ -195,7 +302,6 @@ the character E or e.</span><br class="auto-style10" />
 <td class="auto-style10">Menu shown in serial output.</td>
 </tr>
 </table>
-<p class="auto-style10"><strong>Control and settings of the clock</strong></p>
 <p><span class="auto-style10">If there is no WIFI connection time and digital or word clock mode can be set with 
 the three buttons. </span> <br class="auto-style10" />
 <span class="auto-style10">Check at the bottom of the menu if WIFI is OFF. </span> 
@@ -243,7 +349,7 @@ to white enter: Q2</span><br class="auto-style10" />
 <span class="auto-style10">Set the time by entering T130245. (130245 will also work)</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">Turn off WIFI by sending a W.</span></p>
-<p class="auto-style10">Reset the MCU with the letter @.</p>
+<p class="auto-style10">Reset the MCU with the character @.</p>
 <p><span class="auto-style10">Reset to default setting by send R.<br />
 </span><br class="auto-style10" />
 <span class="auto-style10">In the BLE connection the SSID and password will be shown. 
@@ -261,13 +367,48 @@ to white enter: Q2</span><br class="auto-style10" />
 </tr>
 </table>
 </p>
-<p><span class="auto-style10"><strong>Detailed description</strong></span><br class="auto-style10" />
+<p><span class="auto-style10"><strong>Detailed description</strong></span></p>
+<pre>___________________________________
+A SSID B Password C BLE beacon name
+D Date (D15012021) T Time (T132145)
+E Timezone  (E&lt;-02&gt;2 or E&lt;+01&gt;-1)
+  Make own colour of:  (Hex RRGGBB)
+F Font  G Dimmed font H Bkgnd
+I To print this Info menu
+K LDR reads/sec toggle On/Off
+L L0 = NL, L1 = UK, L2 = DE
+  L3 = FR, L4 = Wheel
+N Display off between Nhhhh (N2208)
+O Display toggle On/Off
+Q Display colour choice      (Q0-6)
+  Q0 Yellow  Q1 hourly
+  Q2 White   Q3 All Own
+  Q4 Own     Q5 Wheel
+  Q6 Digital display
+R Reset settings @ = Reset MCU
+Light intensity (1-250)
+S=Slope V=Min  U=Max  (S80 L5 M200)
+W=WIFI  X=NTP  Y=BLE  Z=Fast BLE
+Ed Nieuwenhuys Nov 2022
+___________________________________
+     Display off: 00h - 00h
+  Display choice: Yellow
+            SSID: FRITZ!BoxEd
+        BLE name: ESPWordClock
+      IP-address: 192.168.178.31
+Timezone:CET-1CEST,M3.5.0,M10.5.0/3
+ WIFI=On NTP=On BLE=On FastBLE=On
+ Language choice: Rotate language
+Software: ESp32C3-WordClockV008.ino
+16:08:16</pre>
+<p>&nbsp;</p>
+<p>
 <br class="auto-style10" />
-<span class="auto-style10">With the menu many preferences can be set. These preferences are stored on a 
-SD-card or in the ESP32-C3 storage space.</span><br class="auto-style10" />
+<span class="auto-style10">With the menu many preferences can be set. <br />
+These preferences are permanently stored in the ESP32-C3 SPIFFS-storage space.</span><br class="auto-style10" />
 &nbsp;<br class="auto-style10" />
 <span class="auto-style10">Enter the first character in the menu of the item to be changed followed with the parameter.</span><br class="auto-style10" />
-<span class="auto-style10">There is no difference between upper or lower case. Both are OK.</span><br class="auto-style10" />
+<span class="auto-style10">For most entries upper and lower case are identical</span><br class="auto-style10" />
 <span class="auto-style10">Between the ( )</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">
@@ -309,13 +450,19 @@ font.</span><br class="auto-style10" />
 can be used.</span><br class="auto-style10" />
 <span class="auto-style10">The command is 2 digits for Red followed with&nbsp; two for Green and ending 
 with two digits for Blue. </span> <br class="auto-style10" />
-<span class="auto-style10">To colour the characters intense red enter FF0000 prefixed with the letter F, G 
+<span class="auto-style10">To colour the characters intense red enter FF0000 prefixed with the 
+character F, G 
 or H.</span><br class="auto-style10" />
 <span class="auto-style10">To set the background to intense blue enter: H0000FF</span><br class="auto-style10" />
 <span class="auto-style10">To set the dimmed character to dark gray enter for example: G191919. You get 
 gray if red, green and blue has the same intensity.</span></p>
 <p><span class="auto-style10"><strong>I To print this Info menu</strong></span><br class="auto-style10" />
 <span class="auto-style10">Print the menu to Bluetooth and the serial monitor connected with an USB-cable</span><br class="auto-style10" />
+</p>
+<p class="auto-style10"><strong>K LDR reads/sec toggle On/Off<br />
+</strong>Shows the LDR-readings and the calculated intensity output to the 
+display </p>
+<p>
 <br class="auto-style10" />
 <span class="auto-style10">
 <strong>L L0 = NL, L1 = UK, L2 = DE, L3 = FR, L4 = Wheel</strong></span><br class="auto-style10" />
@@ -347,409 +494,545 @@ Q6 Digital display</span></strong><br class="auto-style10" />
 <span class="auto-style10">Send an 'I' to display the latest's settings</span></p>
 <p><span class="auto-style10"><strong>R Reset settings </strong></span>
 <br class="auto-style10" />
-<span class="auto-style10">R will set all preferences to default settings, it also clears the SSID and password.</span><br class="auto-style10" />
+<span class="auto-style10">R will set all preferences to default settings, it also clears the SSID and password.</span></p>
+<p><span class="auto-style10"><strong>Light intensity (1-250)</strong></span><strong><br class="auto-style10" />
+</strong><span class="auto-style10"><strong>S=Slope V=Min&nbsp; U=Max&nbsp; 
+(S100 L5 M200)</strong></span></p>
+<p>
+<table style="width: 100%">
+<tr>
+<td><span class="auto-style10">To control the light intensity three parameters 
+can be set.</span><br class="auto-style10" />
+<span class="auto-style10">The values ranges between 0 and 255</span><br class="auto-style10" />
+<span class="auto-style10">The minimal light intensity is to avoid that the 
+display turns completely off when it is dark. It also prevents flickering when 
+the input value are very low. </span><br class="auto-style10" />
+<span class="auto-style10">Values ranging between 5 and 20 are suggested. When 
+no LDR is attached the Min value can be set to 255.<br />
+The maximum light intensity is 255 bits for 100% intensity. </span>
+<br class="auto-style10" />
+<span class="auto-style10">The Slope (sensitivity) controls the speed at with the maximum 
+value is reached. <br />
+It multiplies the reading as a percentage. So, entering
+100 is a multiplication by one. <br />
+The placement and sensitivity of your LDR can be 
+adjusted with this parameter Slope.<br />
+<br />
+</span></td>
+<td><span class="auto-style10">
+<img alt="Min Max Slope" src="Pics/MinMaxSlope.jpg" /><br />
+The effect of the value of the slope on the light intensity of the LEDs 
+or display.</span></td>
+</tr>
+</table>
 </p>
 <p>
 <strong><span class="auto-style10">@ = Restart MCU</span><br class="auto-style10" />
 </strong><span class="auto-style10">@ will restart the MCU. This is handy when the SSID, et cetera are 
 changed and the program must be restarted.</span></p>
-<p>
-<span class="auto-style10">
-<strong>W=WIFI, X=NTP, Y=BLE, Z=Use SD</strong></span><br class="auto-style10" />
-<span class="auto-style10">Toggle WIFI, NTP on and off.</span><br class="auto-style10" />
-<span class="auto-style10">Enter the character will toggle it on or off. A the bottom of the menu the 
-stated is printed.</span><br class="auto-style10" />
-<img alt="Bottom menu" class="auto-style4" src="Pics/BottomMenu.gif" /><br class="auto-style10" />
-</p>
+<table style="width: 100%">
+	<tr>
+		<td><span class="auto-style10">
+		<strong>W=WIFI, X=NTP, Y=BLE<br />
+		</strong></span><br class="auto-style10" />
+<span class="auto-style10">Toggle WIFI, NTP and BLE on and off.<br />
+		</span><br class="auto-style10" />
+<span class="auto-style10">Enter the character will toggle it on or off. <br />
+		At the bottom of the menu the 
+state is printed.</span></td>
+		<td>
+<img alt="Bottom menu" class="auto-style4" src="Pics/BottomMenu.gif" /></td>
+	</tr>
+	<tr>
+		<td colspan="2">
 <p><span class="auto-style10"><strong>Z Fast BLE</strong></span><br class="auto-style10" />
 <span class="auto-style10">The
 BLE UART protocol sends default packets of 20 bytes. Between every packet there is a delay of 50 
 msec</span><br class="auto-style10" />
 <span class="auto-style10">The IOS BLEserial app, and maybe others too, is able to receive packets of 80 
-bytes or more before characters are missed and </span> 
+bytes or more before characters are missed. <br />
+With most apps you will see these will truncate the long strings of the menu.
+<br />
+Then turn off Fast BLE. </span> 
 <br class="auto-style10" />
 <span class="auto-style10">Option Z toggles between the long and short packages.&nbsp; 
 </span> </p>
 <p class="auto-style10">
 Settings are stored in the SPIFFS space from the ESP32-C3</p>
+		</td>
+	</tr>
+</table>
+<p>
+<br class="auto-style10" />
+</p>
 <p class="auto-style10">
 <strong>Compilation and uploading</strong></p>
-<p class="auto-style10">
-The following libraries are 
-used.<br />
-<span class="auto-style10">#include &lt;NimBLEDevice.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // For BLE communication&nbsp; https://github.com/h2zero/NimBLE-Arduino</span><br />
-<span class="auto-style10">#include &lt;ESPNtpClient.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // https://github.com/gmag11/ESPNtpClient</span><br />
-<span class="auto-style10">#include &lt;WiFi.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Used for NTP tme and web page</span><br />
-<span class="auto-style10">#include &lt;AsyncTCP.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Used for webpage&nbsp;&nbsp; https://github.com/me-no-dev/ESPAsyncWebServer</span><br />
-<span class="auto-style10">#include &lt;ESPAsyncWebServer.h&gt; // Used for webpage&nbsp;&nbsp;   <a href="https://github.com/me-no-dev/ESPAsyncWebServer">https://github.com/me-no-dev/ESPAsyncWebServer</a></span><br />
-<span class="auto-style10">#include &lt;Preferences.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Used for SPIFFS file system</span></p>
-<p class="auto-style10">&nbsp;</p>
-<p><img alt="ESP32-c3 DEV board" src="Pics/img6.gif" class="auto-style10"></p>
+<p class="auto-style10">The settings of the ESP32C3 board is as follows.<br />
+Partition scheme is huge.<br />
+Remember to install the ESP32 boards as explained above in the chapter Materials<br />
+</p>
+<p><img alt="Board settings" height="497" src="Pics/img6.gif" width="488" /></p>
 <p class="auto-style10">&nbsp;</p>
 <p class="auto-style10"><strong>Program explanation</strong></p>
-<p><span class="auto-style10">The program uses a few standard libraries. </span> 
+<p><span class="auto-style10">The program uses the following standard libraries. </span> 
 <br class="auto-style10" />
 </p>
-<pre><span class="auto-style10">// ESP32-C3 Includes defines and initialisations</span>
+<pre><span class="auto-style11">// ESP32-C3 Includes defines and initialisations</span>
 
-<span class="auto-style10">#include &lt;NimBLEDevice.h&gt;      // For BLE communication https://github.com/h2zero/NimBLE-Arduino</span>
-<span class="auto-style10">#include &lt;ESPNtpClient.h&gt;      // https://github.com/gmag11/ESPNtpClient</span>
-<span class="auto-style10">#include &lt;WiFi.h&gt;              // Used for NTP time and web page</span>
-<span class="auto-style10">#include &lt;AsyncTCP.h&gt;          // Used for webpage https://github.com/me-no-dev/ESPAsyncWebServer</span>
-<span class="auto-style10">#include &lt;ESPAsyncWebServer.h&gt; // Used for webpage https://github.com/me-no-dev/ESPAsyncWebServer</span>
-<span class="auto-style10">#include &lt;Preferences.h&gt;       // for storage in SPIFFS</span>
-<span class="auto-style10">#include "Colors.h"            // Definition of the colour list</span></pre>
-<p><span class="auto-style10">Colors.h is included in the program as a TAB</span><br class="auto-style10" />
-<span class="auto-style10">The same as the #include "Webpage.h" </span> 
+<span class="auto-style11">#include &lt;NimBLEDevice.h&gt;          // For BLE communication https://github.com/h2zero/NimBLE-Arduino</span>
+<span class="auto-style11">#include &lt;ESPNtpClient.h&gt;          // https://github.com/gmag11/ESPNtpClient</span>
+<span class="auto-style11">#include &lt;WiFi.h&gt;                  // Used for NTP time and web page</span>
+<span class="auto-style11">#include &lt;AsyncTCP.h&gt;              // Used for webpage https://github.com/me-no-dev/ESPAsyncWebServer</span>
+<span class="auto-style11">#include &lt;ESPAsyncWebServer.h&gt;     // Used for webpage https://github.com/me-no-dev/ESPAsyncWebServer</span>
+<span class="auto-style11">#include &lt;Preferences.h&gt;           // for storage in SPIFFS</span>
+<span class="auto-style11">#include "Colors.h"                // Definition of the colour list</span></pre>
+<p><span class="auto-style10">Colors.h is included in the program as a TAB in 
+the IDE. It contains color names and it associated RGB values</span><br class="auto-style10" />
+<span class="auto-style10">The other TAB is the web page to display in the 
+browser.<br />
+The&nbsp;#include "Webpage.h" to load the webpage is a few lines further in the code </span> 
 <br class="auto-style10" />
-<span class="auto-style10">I made the web page in the free 'Microsoft Expression Web 4'. It is not 
-maintained anymore but has more than enough functionalities for our purposes</span><br class="auto-style10" />
-<span class="auto-style10">Click&nbsp; Spit, below in the window of MS-Expression, and copy all the HTML 
-code between:</span><br class="auto-style10" />
-<span class="auto-style11">R"rawliteral( </span><span class="auto-style10">&nbsp;... and ...&nbsp;
-</span><span class="auto-style11">)rawliteral"; </span> 
-<br class="auto-style10" />
-</p>
-<p><br class="auto-style10" />
+<span class="auto-style10"><br />
+I made the web page in the free 'Microsoft Expression Web 4'. It is not 
+maintained anymore but has more than enough functionalities for our purposes.<br />
+<br />
+To copy the code from the MS-Expression:</span><br class="auto-style10" />
+<span class="auto-style10">In the bottom line of the window of MS-Expression click&nbsp;'Split'.<br />
+In the upper half the raw HTML Code is displayed and in the bottom half the 
+Design window.<br />
+Copy in the Code window all the HTML 
+code <br />
+Go to the Arduino IDE and paste it in the webpage.h TAB between:</span><span class="auto-style11"><br />
+R"rawliteral( </span><span class="auto-style10">&nbsp;... and ...&nbsp;
+</span><span class="auto-style11">)rawliteral";<br />
+<br />
+</span><span class="auto-style10">Or copy the the code from the webpage.h into 
+MSexpression Code area and redesign the page as you like</span></p>
+<p>
 <img alt="MS expression" class="auto-style4" src="Pics/MSExpression.jpg" /><br class="auto-style10" />
 <span class="auto-style10">&nbsp;</span></p>
 <p><span class="auto-style10">A long list if definitions and initialisations follows.</span><br class="auto-style10" />
 <span class="auto-style10">I am not a fan of passing all the variables to and from functions and like to 
 keep them global in one program list.</span><br class="auto-style10" />
-<span class="auto-style10">If you write a program with other people it is good practice not to use globals 
+<span class="auto-style10">If you write a program with other people it is good practice not to use 
+too many globals 
 but this program is in one large listing, for the same reason to keep it simple.</span><br class="auto-style10" />
 <span class="auto-style10">I grouped all the variables per application to keep track where they are used.</span><br class="auto-style10" />
-<span class="auto-style10">With a simple find it is easy in this one great listing to find the back.</span><br class="auto-style10" />
+<span class="auto-style10">With a simple find it is easy in this one great listing to find the back.<br />
+<br />
+To print the time as text and colour with the proper LEDs or characters, the 
+words and its position in a string of LEDs or text are defined. <br />
+The defines executes the function ColorLeds with its proper parameters.<br />
+Further in the program&nbsp; in the function void Dutch(void), void 
+English(void) et cetera it becomes clear why these defines are so useful and 
+handy.&nbsp; </span>
 </p>
-<p><span class="auto-style10">To print the time as text and colour the proper 
-LEDs all the words and its position in a string leds or text are defined.</span><br class="auto-style10" />
-<span class="auto-style10">...&nbsp;&nbsp; </span><span class="auto-style11">#define PRECIES ColorLeds("precies", 16, 22, LetterColor);</span><br class="auto-style10" />
-</p>
-<p><br class="auto-style10" />
-<span class="auto-style11">Preferences FLASHSTOR;</span><br class="auto-style10" />
+<pre><span class="auto-style10">...   
+</span><span class="auto-style11">#define PRECIES ColorLeds("precies", 16, 22, LetterColor);
+#define MTIEN   ColorLeds("tien", 25, 28, LetterColor); 
+#define KWART   ColorLeds("kwart", 32, 36, LetterColor); 
+#define VOOR    ColorLeds("voor", 38, 41, LetterColor); 
+...</span>
+</pre>
+<span class="auto-style10">This is the initialisation of the storage area to 
+store the struct EEPROMstorage.<br />
+The Struct with all its settings is saved in one command to permanent memory or 
+SD</span><br class="auto-style10" />
+<span class="auto-style11">Preferences FLASHSTOR;</span><br />
+<br />
+
+<span class="auto-style11">struct EEPROMstorage { // Data storage in EEPROM to maintain them after power loss</span><br />
+<span class="auto-style11">byte DisplayChoice = 0;</span><br />
+<span class="auto-style11">...</span><br />
+<span class="auto-style11">char BLEbroadcastName[30]; // Name of the BLE beacon</span><br />
+<span class="auto-style11">char Timezone[50];</span><br />
+<span class="auto-style11">int Checksum = 0;</span><br />
+<span class="auto-style11">} Mem;</span><br />
+<br /><br />
+<br /><span class="auto-style10">The variables are adressed with a short name Mem.
+</span><br /><span class="auto-style10">For example Mem.DisplayChoice = 3;</span><br />
+<br />
+<span class="auto-style10">The Struct <span class="auto-style11">EEPROMstorage<br />
+</span>is stored in the function StoreStructInFlashMemory <br />and retrieved in the function GetStructFromFlashMemory</span><br />
+<br />
+<br /><br />
+<span class="auto-style10">The menu displayed in the serial monitor and BLE app is defined here.<br />String may not be longer than 40 characters what can be checked with the 'ruler'
+<br />
+string.</span><br class="auto-style10" />
+<pre><span class="auto-style11">// Menu</span>
+<span class="auto-style11">//0        1         2         3         4</span>
+<span class="auto-style11">//1234567890123456789012345678901234567890 </span>
+<span class="auto-style11">char menu[][40] = {</span>
+<span class="auto-style11">"A SSID B Password C BLE beacon name",</span>
+<span class="auto-style11">"D Date (D15012021) T Time (T132145)",</span>
+<span class="auto-style11">...</span>
+<span class="auto-style11">"W=WIFI, X=NTP, Y=BLE, Z=Fast BLE", </span>
+<span class="auto-style11">"Nov 2022" };</span></pre>
+<span class="auto-style10">The Setup happens here:</span><pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// ESP32-C3 Setup</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void setup() </span>
+{
+<span class="auto-style11">Serial.begin(115200); Tekstprintln("Serial started"); // Setup the serial port to 115200 baud //</span>
+<span class="auto-style11">...
+...</span>
+<span class="auto-style11">msTick = LastButtonTime = millis(); </span>
+}</pre>
+<span class="auto-style10"><br />
+The loop is kept almost empty and the program starts 
+in Every SeccondCheck.<br />
+There is nothing in this program that should be executes every millisecond or 
+less</span><pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// ESP32-C3 Loop</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void loop() </span>
+{
+<span class="auto-style11">EverySecondCheck();
+} </span></pre>
+<span class="auto-style10">The following routines check if 
+something must happen every second, minute, hour and day.<br />
+This flow handling of the program keeps the processor for 99% free for other 
+uses.<br />
+In this program that is almost nothing but for other purposes this can be 
+needed.<br />
+Use delays very sparsely. <br />
+In the Bluetooth and Serial communication functions some short delays are used 
+that are essential <br />
+here but the program only runs here when there is an actual&nbsp; communication.<br />
+(An alternative method could have been the use of an interrupt every second and 
+an empty loop)<br />
+<br />
+Writing or reading to ports consumes a lot of processor time<br />
+To let the LEDs flash like a heartbeat.<br />
+With %100==0 the port is written every 100 msec.<br />
+The LEDs are very bright therefore only a maximum of 12 bits of the 255 are send 
+to the LED.</span>
+
+<pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// CLOCK Update routine done every second</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void EverySecondCheck(void)</span>
+{
+<span class="auto-style11">static int lumi=0;
+(msLeap&gt;500?lumi=(1000-msLeap)/40:lumi=msLeap/40);                       
+if (msLeap%100==0){ SetStatusLED(-1,-1,12-lumi,lumi*WIFIConnected,-1); } </span>
+<span class="auto-style11">... </span>
+<span class="auto-style11">if (timeinfo.tm_min != lastminute) EveryMinuteUpdate(); // Enter the every minute routine after one minute</span>
+<span class="auto-style11">...</span>
+}
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// CLOCK Update routine done every minute</span>
+<span class="auto-style11">//-------------------------------------------- </span>
+<span class="auto-style11">void EveryMinuteUpdate(void)</span>
+{
+<span class="auto-style11">...</span>
+<span class="auto-style11">if(timeinfo.tm_hour != lasthour) EveryHourUpdate();</span>
+}
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// CLOCK Update routine done every hour</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void EveryHourUpdate(void)</span>
+{
+<span class="auto-style11">...</span>
+<span class="auto-style11">if (timeinfo.tm_mday != lastday) EveryDayUpdate(); </span>
+}
+<span class="auto-style11">// //</span>
+<span class="auto-style11">//------------------------------------------------------------------------------</span>
+<span class="auto-style11">// CLOCK Update routine done every day</span>
+<span class="auto-style11">//------------------------------------------------------------------------------</span>
+<span class="auto-style11">void EveryDayUpdate(void)</span>
+{
+<span class="auto-style11">...</span>
+}</pre>
 <br class="auto-style10" />
-<span class="auto-style10">struct EEPROMstorage { // Data storage in EEPROM to maintain them after power 
-loss</span><br class="auto-style10" />
-<span class="auto-style10">byte DisplayChoice = 0;</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<span class="auto-style10">char BLEbroadcastName[30]; // Name of the BLE beacon</span><br class="auto-style10" />
-<span class="auto-style10">char Timezone[50];</span><br class="auto-style10" />
-<span class="auto-style10">int Checksum = 0;</span><br class="auto-style10" />
-<span class="auto-style10">} Mem;</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">// Menu</span><br class="auto-style10" />
-<span class="auto-style10">//0 1 2 3 4</span><br class="auto-style10" />
-<span class="auto-style10">//1234567890123456789012345678901234567890---- </span> 
-<br class="auto-style10" />
-<span class="auto-style10">char menu[][40] = {</span><br class="auto-style10" />
-<span class="auto-style10">"A SSID B Password C BLE beacon name",</span><br class="auto-style10" />
-<span class="auto-style10">"D Date (D15012021) T Time (T132145)",</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<span class="auto-style10">"W=WIFI, X=NTP, Y=BLE, Z=Fast BLE", </span> 
-<br class="auto-style10" />
-<span class="auto-style10">"Nov 2022" };</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// ESP32-C3 Setup</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void setup() </span> <br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">Serial.begin(115200); Tekstprintln("Serial started"); // Setup the serial port 
-to 115200 baud //</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<span class="auto-style10">msTick = LastButtonTime = millis(); </span> 
-<br class="auto-style10" />
-}<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// ESP32-C3 Loop</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void loop() </span> <br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">EverySecondCheck(); </span> 
-<br class="auto-style10" />
-<span class="auto-style10">CheckDevices();</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Update routine done every second</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void EverySecondCheck(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">static int lumi=0;</span><br class="auto-style10" />
-<span class="auto-style10">... </span> <br class="auto-style10" />
-<span class="auto-style10">if (timeinfo.tm_min != lastminute) EveryMinuteUpdate(); // Enter the every 
-minute routine after one minute</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Update routine done every minute</span><br class="auto-style10" />
-<span class="auto-style10">//-------------------------------------------- </span> 
-<br class="auto-style10" />
-<span class="auto-style10">void EveryMinuteUpdate(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<span class="auto-style10">if(timeinfo.tm_hour != lasthour) EveryHourUpdate();</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Update routine done every hour</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void EveryHourUpdate(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<span class="auto-style10">if (timeinfo.tm_mday != lastday) EveryDayUpdate();
-</span> <br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">// //</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Update routine done every day</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void EveryDayUpdate(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<br class="auto-style10" />
-<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common check for serial input</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void SerialCheck(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<span class="auto-style10">ReworkInputString(SerialString+"\n"); // Rework ReworkInputString();</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common Reset to default settings</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void Reset(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">Mem.Checksum = 25065; //</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common common print routines</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void Tekstprint(char const tekst[]) { if(Serial) Serial.print(tekst); 
-SendMessageBLE(tekst);sptext[0]=0; } </span> <br class="auto-style10" />
-<span class="auto-style10">void Tekstprintln(char const tekst[]) { sprintf(sptext,"%s\n",tekst); Tekstprint(sptext); 
-}</span><br class="auto-style10" />
-<span class="auto-style10">void TekstSprint(char const tekst[]) { printf(tekst); sptext[0]=0;} // printing 
-for Debugging purposes in serial monitor </span> <br class="auto-style10" />
-<span class="auto-style10">void TekstSprintln(char const tekst[]){ sprintf(sptext,"%s\n",tekst); 
-TekstSprint(sptext); }</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common Constrain a string with integers</span><br class="auto-style10" />
-<span class="auto-style10">// The value between the first and last character in a string is returned 
-between the low and up bounderies</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">int SConstrainInt(String s,byte first,byte last,int low,int up){return 
-constrain(s.substring(first, last).toInt(), low, up);}</span><br class="auto-style10" />
-<span class="auto-style10">int SConstrainInt(String s,byte first, int low,int up){return constrain(s.substring(first).toInt(), 
-low, up);}</span><br class="auto-style10" />
-<span class="auto-style10">// //</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common Init and check contents of EEPROM</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void InitStorage(void)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common common print routines</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void Tekstprint(char const tekst[]) { if(Serial) Serial.print(tekst); 
-SendMessageBLE(tekst);sptext[0]=0; } </span> <br class="auto-style10" />
-<span class="auto-style10">void Tekstprintln(char const tekst[]) { sprintf(sptext,"%s\n",tekst); Tekstprint(sptext); 
-}</span><br class="auto-style10" />
-<span class="auto-style10">void TekstSprint(char const tekst[]) { printf(tekst); sptext[0]=0;} // printing 
-for Debugging purposes in serial monitor </span> <br class="auto-style10" />
-<span class="auto-style10">void TekstSprintln(char const tekst[]){ sprintf(sptext,"%s\n",tekst); 
-TekstSprint(sptext); }</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common Constrain a string with integers</span><br class="auto-style10" />
-<span class="auto-style10">// The value between the first and last character in a string is returned 
-between the low and up bounderies</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------------------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">int SConstrainInt(String s,byte first,byte last,int low,int up){return 
-constrain(s.substring(first, last).toInt(), low, up);}</span><br class="auto-style10" />
-<span class="auto-style10">int SConstrainInt(String s,byte first, int low,int up){return constrain(s.substring(first).toInt(), 
-low, up);}</span><br class="auto-style10" />
-<span class="auto-style10">// //</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// Common Init and check contents of EEPROM</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void InitStorage(void)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// COMMON Store mem.struct in FlashStorage or SD</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void StoreStructInFlashMemory(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// COMMON Get data from FlashStorage</span><br class="auto-style10" />
-<span class="auto-style10">// Preferences.h</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void GetStructFromFlashMemory(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Input from Bluetooth or Serial</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void ReworkInputString(String InputString)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">.... </span> <br class="auto-style10" />
-<span class="auto-style10">switch (InputString[0])</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">case 'A':</span><br class="auto-style10" />
-<span class="auto-style10">case 'a': </span> <br class="auto-style10" />
-<span class="auto-style10">if (InputString.length() &gt;5 )</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// LED Set color for LED. </span> 
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void ColorLeds(char const *Texkst, int FirstLed, int LastLed, uint32_t RGBColor)</span><br class="auto-style10" />
-<span class="auto-style10">{ </span> <br class="auto-style10" />
-<br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">// //</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// COMMON String upper</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void to_upper(char* string)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// LED Clear the character string</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void LedsOff(void) </span> 
-<br class="auto-style10" />
-<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// LED Set second color</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void SetSecondColour(void)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">// //</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Version and preferences info</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void SWversion(void) </span> 
-<br class="auto-style10" />
-<span class="auto-style10">{ </span> <br class="auto-style10" />
-<span class="auto-style10">#define FILENAAM (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : 
-__FILE__)</span><br class="auto-style10" />
-<span class="auto-style10">PrintLine(35);</span><br class="auto-style10" />
-<span class="auto-style10">for (uint8_t i = 0; i &lt; sizeof(menu) / sizeof(menu[0]); Tekstprintln(menu[i++]));</span><br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<span class="auto-style10">PrintLine(35);</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">void PrintLine(byte Lengte)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">// //</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Say the time and load the LEDs </span> 
-<br class="auto-style10" />
-<span class="auto-style10">// with the proper colour and intensity</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void Displaytime(void)</span><br class="auto-style10" />
-<span class="auto-style10">{ </span> <br class="auto-style10" />
-<span class="auto-style10">..</span><br class="auto-style10" />
-<span class="auto-style10">switch(Language) // Print all the character in the backgound color, a sort of 
-ClearScreen</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">case 0: </span> <br class="auto-style10" />
-<span class="auto-style10">strncpy(Template,"HETVISOWASOVIJFQPRECIESZSTIENKPFKWARTSVOORSOVERAHALFSMIDDERTVIJFATWEESOEENOXVIERELFQTIENKTWAALFBHDRIECNEGENACHTFZESVZEVENOENVUUR",129);
+<span class="auto-style10">Check for serial input from the serial monitor and 
+pass the command to ReworkInputString()&nbsp; </span>
+<pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// Common check for serial input</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void SerialCheck(void)</span>
+{
+<span class="auto-style11">...</span>
+<span class="auto-style11">ReworkInputString(SerialString+"\n"); // Rework ReworkInputString();</span>
+<span class="auto-style11">...</span>
+}</pre>
+<br class="auto-style10" /><span class="auto-style10">Restore all the default 
+values.</span><pre><span class="auto-style11">//------------------------------------------------------------------------------</span>
+<span class="auto-style11">// Common Reset to default settings</span>
+<span class="auto-style11">//------------------------------------------------------------------------------</span>
+<span class="auto-style11">void Reset(void)</span>
+{
+<span class="auto-style11">Mem.Checksum = 25065;
+...
+</span>}</pre>
+<span class="auto-style10">Common common print routines.<br />
+To keep all the print commands in one places it is easy to change these routines 
+for other boards with a different 'slang'.</span><br class="auto-style10" />
+<pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// Common common print routines</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void Tekstprint(char const tekst[]) { if(Serial) Serial.print(tekst); SendMessageBLE(tekst);sptext[0]=0; } </span>
+<span class="auto-style11">void Tekstprintln(char const tekst[]) { sprintf(sptext,"%s\n",tekst); Tekstprint(sptext); }</span>
+<span class="auto-style11">void TekstSprint(char const tekst[]) { printf(tekst); sptext[0]=0;} // printing for Debugging purposes in serial monitor </span>
+<span class="auto-style11">void TekstSprintln(char const tekst[]){ sprintf(sptext,"%s\n",tekst); TekstSprint(sptext); }</span>
+<span class="auto-style11">//------------------------------------------------------------------------------</span>
+<span class="auto-style11">// Common Constrain a string with integers</span>
+<span class="auto-style11">// The value between the first and last character in a string is returned between the low and up bounderies</span>
+<span class="auto-style11">//------------------------------------------------------------------------------</span>
+<span class="auto-style11">int SConstrainInt(String s,byte first,byte last,int low,int up){return constrain(s.substring(first, last).toInt(), low, up);}</span>
+<span class="auto-style11">int SConstrainInt(String s,byte first, int low,int up){return constrain(s.substring(first).toInt(), low, up);}</span>
+
+</pre>
+<span class="auto-style10">The setup of storage space and control of the 
+validity of the settings.<br />
+In the checksum is invalid a reset() will restore the default settings</span><pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// Common Init and check contents of EEPROM</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void InitStorage(void)</span></pre>
+<span class="auto-style10">Store and retrieve the settings from SPIFFS or SD or 
+EEPROM<br />
+the several possibilities are store here. EEPROM becomes outdated but still 
+works.</span><pre><span class="auto-style11">--------------------------------------------</span>
+<span class="auto-style11">// COMMON Store mem.struct in FlashStorage or SD</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void StoreStructInFlashMemory(void)</span>
+{
+}
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// COMMON Get data from FlashStorage Preferences.h</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void GetStructFromFlashMemory(void)</span>
+{
+}</pre>
+<span class="auto-style10">Get the commands from the strings entered in the 
+serial monitor, Bluetooth or the webpage<br />
+and perform the command in an action.<br />
+The menu letters are almost used but it possible to distinguish between lower 
+and uppercase when more commands are needed.<br />
+(That is why there is no conversion to UpperCase or LowerCase).</span><pre><span class="auto-style11">/--------------------------------------------</span>
+<span class="auto-style11">// CLOCK Input from Bluetooth or Serial</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void ReworkInputString(String InputString)</span>
+{
+<span class="auto-style11">.... </span>
+<span class="auto-style11">switch (InputString[0])</span>
+{
+<span class="auto-style11">case 'A':</span>
+<span class="auto-style11">case 'a': </span>
+<span class="auto-style11">if (InputString.length() &gt;5 )</span>
+<span class="auto-style11">...</span></pre>
+<span class="auto-style10">Read the LDR and divide it with 16 to get the values 
+from 0 - 4096 between 0 and 255.<br />
+Not all boards has a 12 bit AD converter like. </span>
+<pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// LDR reading are between 0 and 255. </span>
+<span class="auto-style11">// ESP32 analogue read is between 0 - 4096 --   is: 4096 / 8</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">int ReadLDR(void) {  return analogRead(PhotoCellPin)/16;}</span></pre>
+<br />
+<span class="auto-style10">Control the color and intensity of the LED on the 
+boards in one command</span><br class="auto-style10" />
+<span class="auto-style10">-1 leaves the LED unchanged. Values between 0 and 
+255.</span><pre>//--------------------------------------------
+<span class="auto-style11">// CLOCK Control the LEDs on the ESP32</span>
+<span class="auto-style11">// -1 leaves intensity untouched</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void SetStatusLED(int WW, int CW, int Re, int Gr, int Bl)</span>
+{</pre>
+<br />
+<span class="auto-style10">This function reads the analog port and calculates an 
+output intensity to a 
+display or LED-strip<br />
+The readings are squared to get a hyperbolic curve that resembles you eye 
+correction for dark and light better than a linear range<br />
+It works wonderfully well.<br />
+</span><br class="auto-style10" />
+<pre><span class="auto-style11">//--------------------------------------------</span> <span class="auto-style11">
+// LED Dim the leds measured by the LDR and print values</span> <span class="auto-style11">
+// LDR reading are between 0 and 255. The Brightness send to the LEDs is between 0 and 255</span> <span class="auto-style11">
+//--------------------------------------------</span> <span class="auto-style11">
+void DimLeds(bool print) { ... } </pre>
+</span><span class="auto-style10"><br />
+<br />
 </span>
 <br class="auto-style10" />
-<span class="auto-style10">ColorLeds(Template,0,127, Mem.DimmedLetter);</span><br class="auto-style10" />
-<span class="auto-style10">Dutch(); Print_tijd(); break;</span><br class="auto-style10" />
-<span class="auto-style10">case 1: </span> <br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-}<br class="auto-style10" />
-<span class="auto-style10">//--------------------------- Time functions --------------------------</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">void GetTijd(byte printit)</span><br class="auto-style10" />
-<span class="auto-style10">void Print_RTC_tijd(void)</span><br class="auto-style10" />
-<span class="auto-style10">void PrintNTP_tijd(void)</span><br class="auto-style10" />
-<span class="auto-style10">void PrintUTCtijd(void)</span><br class="auto-style10" />
-<span class="auto-style10">void Print_tijd(void)</span><br class="auto-style10" />
-<span class="auto-style10">void SetRTCTime(void)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Convert Hex to uint32</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">uint32_t HexToDec(String hexString) </span> 
-<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// CLOCK Dutch clock display</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void Dutch(void)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">HET; // HET is always on</span><br class="auto-style10" />
-<span class="auto-style10">switch (timeinfo.tm_min)</span><br class="auto-style10" />
-{<br class="auto-style10" />
-<span class="auto-style10">case 0: IS; PRECIES; break;</span><br class="auto-style10" />
-<span class="auto-style10">case 1: IS; break;</span><br class="auto-style10" />
-<span class="auto-style10">case 2: </span> <br class="auto-style10" />
-<span class="auto-style10">case 3: WAS; break;</span><br class="auto-style10" />
-<span class="auto-style10">case 4: </span> <br class="auto-style10" />
-<span class="auto-style10">case 5: </span> <br class="auto-style10" />
-<span class="auto-style10">...</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">void English(void)</span><br class="auto-style10" />
-<span class="auto-style10">void German(void)</span><br class="auto-style10" />
-<span class="auto-style10">void French(void)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//-----------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// BLE SendMessage by BLE Slow in packets of 20 chars</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void SendMessageBLE(std::string Message)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//-----------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// BLE Start BLE Classes</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">class MyServerCallbacks: public BLEServerCallbacks
-</span> <br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//-----------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// BLE Start BLE Service</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void StartBLEService(void)</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">//-----------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// BLE CheckBLE</span><br class="auto-style10" />
-<span class="auto-style10">//------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void CheckBLE(void)</span><br class="auto-style10" />
+<span class="auto-style10">Here we print and colour the characters in the 
+display or light up to proper LEDs in a String of RGB(W) LEDs.<br />
+The #define executes this functions with the proper parameters for every 
+language and prints the texts in the serial connections.</span><span class="auto-style11"><br />
+#define QUARTER ColorLeds("quarter", 32, 38, 
+LetterColor); <br />
+</span><span class="auto-style10">
+<br />
+<pre><span class="auto-style11">//--------------------------------------------</span></span> <span class="auto-style10">/</span>
+<span class="auto-style10"><span class="auto-style11">/ LED Set color for LED. 
+//--------------------------------------------</span></span> 
+<span class="auto-style11">void ColorLeds(char const *Texkst, int FirstLed, int LastLed, uint32_t RGBColor)</span> 
+<span class="auto-style11">{ </span>}<span class="auto-style10"></pre>
+<br />
+To convert all characters to uppercase in a character array.<pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// COMMON String upper</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void to_upper(char* string)</span></pre>
+<pre>
+Every display or strip uses other commands to regulate the brightness
+Therefore for all LED/Display commands a function </pre>
+<pre>//------------------------------------------------------------------------------ 
+// LED Set brightness of backlight 
+//------------------------------------------------------------------------------ 
+void SetBrightnessLeds(byte Bright) 
+{ 
+ SetBackLight(Bright); // Set brightness of LEDs 
+} 
+</pre>
+<br />
+A place to turn off all LEDs or clear the display<br />
+<pre><span class="auto-style11">/--------------------------------------------</span>
+<span class="auto-style11">// LED Clear the character string</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void LedsOff(void) </span>
+</pre>
 <br class="auto-style10" />
 <br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// WIFI WEBPAGE </span> <br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void StartWIFI_NTP(void)</span><br class="auto-style10" />
+Here are all the colours are set for the characters are set.<br />
+The function has changed often and it's name describes it's original purpose<br />
+For backward compatibility it's name is unchanged.<br />
+</span><span class="auto-style11">/--------------------------------------------</span><span class="auto-style10"><br class="auto-style11" />
+<span class="auto-style11">// LED Set second color</span><br class="auto-style11" />
+<span class="auto-style11">//--------------------------------------------</span><br class="auto-style11" />
+<span class="auto-style11">void SetSecondColour(void)</span><br class="auto-style11" />
+<span class="auto-style11">{ &nbsp;switch (Mem.DisplayChoice) &nbsp; { &nbsp;case 
+DEFAULTCOLOUR: LetterColor = C_YELLOW; </span>
+<br class="auto-style11" />
+<span class="auto-style11">...</span><br />
+<br />
+<br />
+SWversion() prints the menu and the settings of sevaral preferences<br />
+The function has changed often and it's name describes it's original purpose<br />
+For backward compatibility it's name is unchanged.<br />
+PrintLine() prints the horizontal lines in the menu.<br class="auto-style10" />
+<pre><span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">// CLOCK Version and preferences info</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void SWversion(void) </span>
+<span class="auto-style11">{ </span>
+<span class="auto-style11">#define FILENAAM (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)</span>
+<span class="auto-style11">PrintLine(35);</span>
+<span class="auto-style11">for (uint8_t i = 0; i &lt; sizeof(menu) / sizeof(menu[0]); Tekstprintln(menu[i++]));</span>
+<span class="auto-style11">...</span>
+<span class="auto-style11">PrintLine(35);</span>
+}
+
+<span class="auto-style11">void PrintLine(byte Lengte)</span>
+<span class="auto-style11">{... }</span></pre>
 <br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// WIFI WEBPAGE </span> <br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void WebPage(void) </span> 
+Displaytime() prints the time to the serial monitor as text and control wiich 
+language is printed.<br />
+It also sends the appropriate sequence of colour and intensities to a RGB(W) LED 
+strip.</span><pre><span class="auto-style11">//--------------------------------------------</span><span class="auto-style10">
+<span class="auto-style11">// CLOCK Say the time and load the LEDs </span>
+<span class="auto-style11">// with the proper colour and intensity</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void Displaytime(void)</span>
+<span class="auto-style11">{ </span>
+<span class="auto-style11">..</span>
+<span class="auto-style11">switch(Language) // Print all the character in the backgound color, a sort of ClearScreen</span>
+{
+<span class="auto-style11">case 0: </span>
+<span class="auto-style11">strncpy(Template,"HETVISOWASOVIJFQPRECIESZSTIENKPFKWARTSVOORSOVERAHALFSMIDDERTVIJFATWEESOEENOXVIERELFQTIENKTWAALFBHDRIECNEGENACHTFZESVZEVENOENVUUR",129); </span>
+<span class="auto-style11">ColorLeds(Template,0,127, Mem.DimmedLetter);</span>
+<span class="auto-style11">Dutch(); Print_tijd(); break;</span>
+<span class="auto-style11">case 1: </span>
+<span class="auto-style11">...</span>
+}</pre>
+<br />
+A series of functions to get and store time.<br />
+The NTP time server puts the retrieved time in the standard C time structures.<br />
+<pre><span class="auto-style11">/--------------------------- Time functions --------------------------</span>
+
+<span class="auto-style11">void GetTijd(byte printit)</span>
+<span class="auto-style11">void Print_RTC_tijd(void)</span>
+<span class="auto-style11">void PrintNTP_tijd(void)</span>
+<span class="auto-style11">void PrintUTCtijd(void)</span>
+<span class="auto-style11">void Print_tijd(void)</span>
+<span class="auto-style11">void SetRTCTime(void)</span>
+
+</pre>
+Convert a HEX string to a unsigned 32-bits integer<br />
+<pre>/--------------------------------------------
+<span class="auto-style10">// CLOCK Convert Hex to uint32</span>
+<span class="auto-style10">//--------------------------------------------</span>
+<span class="auto-style10">uint32_t HexToDec(String hexString) </span></pre>
+<h2>Functions to let the clocks speak the time in four languages</h2>
+There is also a lot of slang in languages. <br />
+'Half nine' sometimes means 8:30 but can also be 9:30. (-:<br />
+<br />
+</span><span class="auto-style11">/--------------------------------------------</span><span class="auto-style10"><br class="auto-style11" />
+<span class="auto-style11">// CLOCK Dutch clock display</span><br class="auto-style11" />
+<span class="auto-style11">//--------------------------------------------</span><br class="auto-style11" />
+<span class="auto-style11">void Dutch(void)</span><br class="auto-style11" />
+{<br class="auto-style11" />
+<span class="auto-style11">HET; // HET is always on</span><br class="auto-style11" />
+<span class="auto-style11">switch (timeinfo.tm_min)</span><br class="auto-style11" />
+{<br class="auto-style11" />
+<span class="auto-style11">case 0: IS; PRECIES; break;</span><br class="auto-style11" />
+<span class="auto-style11">case 1: IS; break;</span><br class="auto-style11" />
+<span class="auto-style11">case 2: </span> <br class="auto-style11" />
+<span class="auto-style11">case 3: WAS; break;</span><br class="auto-style11" />
+<span class="auto-style11">case 4: </span> <br class="auto-style11" />
+<span class="auto-style11">case 5: </span> <br class="auto-style11" />
+<span class="auto-style11">...</span><br class="auto-style11" />
+<br class="auto-style11" />
+<span class="auto-style11">void English(void)</span><br class="auto-style11" />
+<span class="auto-style11">void German(void)</span><br class="auto-style11" />
+<span class="auto-style11">void French(void)</span><br class="auto-style10" />
 <br class="auto-style10" />
+<br />
+The Bluetooth Low Energy Nordic nRF.. functions.<br />
+They are different from the Texas instrument CC2540/CC2541 that is used in other 
+chipsets like the HM-10, HM16, JDY-08 et cetera.<br />
+<a href="https://www.instructables.com/Communicate-Using-CC254x-or-NRF-BLE-With-Arduino-a/">
+More here on Instructables</a><br />
+<br />
+<pre><span class="auto-style11">/-----------------------------</span>
+<span class="auto-style11">// BLE SendMessage by BLE Slow in packets of 20 chars</span>
+<span class="auto-style11">//------------------------------</span>
+<span class="auto-style11">void SendMessageBLE(std::string Message)</span>
+
+<span class="auto-style11">/-----------------------------</span>
+<span class="auto-style11">// BLE Start BLE Classes</span>
+<span class="auto-style11">//------------------------------</span>
+<span class="auto-style11">class MyServerCallbacks: public BLEServerCallbacks </span>
+
+<span class="auto-style11">/-----------------------------</span>
+<span class="auto-style11">// BLE Start BLE Service</span>
+<span class="auto-style11">//------------------------------</span>
+<span class="auto-style11">void StartBLEService(void)</span>
+
+<span class="auto-style11">/-----------------------------</span>
+<span class="auto-style11">// BLE CheckBLE</span>
+<span class="auto-style11">//------------------------------</span>
+<span class="auto-style11">void CheckBLE(void)</span></pre>
 <br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">// WIFI WEBPAGE Not found message</span><br class="auto-style10" />
-<span class="auto-style10">//--------------------------------------------</span><br class="auto-style10" />
-<span class="auto-style10">void notFound(AsyncWebServerRequest *request) </span> 
-<br class="auto-style10"></p>
-<p class="auto-style10"><strong>Some lessons learned:</strong></p>
+Functions to start a WIFI connection and use the webpage<br />
+<br />
+<pre><span class="auto-style11">/--------------------------------------------</span>
+<span class="auto-style11">// WIFI WEBPAGE </span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void StartWIFI_NTP(void)</span>
+
+<span class="auto-style11">/--------------------------------------------</span>
+<span class="auto-style11">// WIFI WEBPAGE </span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void WebPage(void) </span>
+
+<span class="auto-style11">/--------------------------------------------</span>
+<span class="auto-style11">// WIFI WEBPAGE Not found message</span>
+<span class="auto-style11">//--------------------------------------------</span>
+<span class="auto-style11">void notFound(AsyncWebServerRequest *request)</span>
+</pre>
+<br />
+<br />
 <p class="auto-style10"><a href="../../email.html">@Ed Nieuwenhuys</a>, November 2022&nbsp;</p>
 <p class="auto-style10">&nbsp;</p>
 <p><span class="auto-style10"><strong>Time zones</strong>. </span> 
@@ -1219,4 +1502,5 @@ ClearScreen</span><br class="auto-style10" />
 <span class="auto-style10">Etc/Universal,"UTC0"</span>
 <span class="auto-style10">Etc/Zulu,"UTC0"</span></pre>
 
-</body>
+</span>
+
