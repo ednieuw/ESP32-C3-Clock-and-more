@@ -1,15 +1,12 @@
 <h1 class="auto-style10">ESP32-C3-12F Clock, HTML page, NTP, BLE to phone and more </h1>
 
-<p class="auto-style10"><strong><a href="../index.html">Home</a></strong></p>
 <p><img alt="4-displays" src="Pics/4-displays.jpg" width="900" /></p>
 <p><span class="auto-style10">A small clock that displays the time in words in Dutch, English, French and 
 German.<br />The clock is able to receive time 
 via NTP from the internet. <br />
 Settings can be controlled via a webpage, PC and Bluetooth LE.</span><br class="auto-style10" />
 <br class="auto-style10" />
-<span class="auto-style10">
-<a href="https://github.com/ednieuw/ESP32-C3-Clock-and-more">Latest versions and 
-updates on Github</a> </span> </p>
+ </p>
 <p><span class="auto-style10">The clock is built with a ESP32-C3-12F kit.</span><br class="auto-style10" />
 <span class="auto-style10">The software is written with the Arduino IDE 1.8.19 
 and IDE 2.0.</span><br class="auto-style10" />
