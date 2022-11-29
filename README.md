@@ -153,7 +153,7 @@ kOhm LDR to ground. The pin A2 is connected to GPIO 02.</p>
 of the LDR readings are printed every second. With the options minimum, maximum 
 and slope in the menu the light intensity of the display can be controlled<br />
 <br />
-<a href="../LDR/GL55xxLDRs.html">More about the LDR and it types</a><br />
+<a href="https://ednieuw.home.xs4all.nl/Woordklok/LDR/GL55xxLDRs.html">More about the LDR and it types</a><br />
 </p>
 <p style="width: 840px" class="auto-style10">
 <img alt="LDR schakeling" src="Pics/LDR.jpg" width="391" /></p>
@@ -991,8 +991,7 @@ There is also a lot of slang in languages. <br />
 The Bluetooth Low Energy Nordic nRF.. functions.<br />
 They are different from the Texas instrument CC2540/CC2541 that is used in other 
 chipsets like the HM-10, HM16, JDY-08 et cetera.<br />
-<a href="https://www.instructables.com/Communicate-Using-CC254x-or-NRF-BLE-With-Arduino-a/">
-More here on Instructables</a><br />
+<a href="https://www.instructables.com/Communicate-Using-CC254x-or-NRF-BLE-With-Arduino-a/">More here on Instructables</a><br />
 <br />
 <pre><span class="auto-style11">/-----------------------------</span>
 <span class="auto-style11">// BLE SendMessage by BLE Slow in packets of 20 chars</span>
@@ -1503,4 +1502,3 @@ Functions to start a WIFI connection and use the webpage<br />
 <span class="auto-style10">Etc/Zulu,"UTC0"</span></pre>
 
 </span>
-
