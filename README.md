@@ -1,17 +1,15 @@
 <h1 class="auto-style10">ESP32-C3-12F Clock, HTML page, NTP, BLE to phone and more </h1>
 
+
 <p><img alt="4-displays" src="Pics/4-displays.jpg" width="900" /></p>
 <p><span class="auto-style10">A small clock that displays the time in words in Dutch, English, French and 
 German.<br />The clock is able to receive time 
 via NTP from the internet. <br />
-Settings can be controlled via a webpage, PC and Bluetooth LE.</span><br class="auto-style10" />
+Settings can be controlled via a webpage, PC and Bluetooth LE.</span><br />
+<p><span class="auto-style10">The clock is built with an ESP32-C3-12F kit.</span><br class="auto-style10" />
+<span class="auto-style10">The software is written with the Arduino IDE 1.8.19.</span><br class="auto-style10" />
 <br class="auto-style10" />
- </p>
-<p><span class="auto-style10">The clock is built with a ESP32-C3-12F kit.</span><br class="auto-style10" />
-<span class="auto-style10">The software is written with the Arduino IDE 1.8.19 
-and IDE 2.0.</span><br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">The software contains coding to use the:</span><br class="auto-style10" />
+<span class="auto-style10">The software of version V009 contains coding to use the:</span><br class="auto-style10" />
 <span class="auto-style10">1 ILI9314 colour display<br />
 2 BLE nRF UART connection with a phone with an option to send strings longer than 20 bytes</span><br class="auto-style10" />
 <span class="auto-style10">3 Time zone corrected time with daylight savings from a NTP server via WIFI</span><br class="auto-style10" />
@@ -22,27 +20,27 @@ intensity</span><br class="auto-style10" />
 <span class="auto-style10">7 Storage of the settings in the ESP32-C3 SPIFSS Flash memory</span><br class="auto-style10" />
 <span class="auto-style10">8 Menu driven control of preferences with serial monitor, BLE and WIFI-html page</span><br class="auto-style10" />
 <span class="auto-style10">9&nbsp;Four languages to display time<br />
-10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock (in V010 and 
-higher)</span></p>
+In V010 and higher.<br />
+10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock</span></p>
 <p style="width: 840px"><br class="auto-style10" />
 <table class="auto-style12">
 <tr>
-<td style="width: 248px" valign="bottom"><span class="auto-style3"><br />
-Het was tien over tien 10:13:00</span><br class="auto-style3" />
-<span class="auto-style3">Il est dix heures et quart 10:14:00</span><br class="auto-style3" />
-<span class="auto-style3">Il est dix heures et quart 10:15:00</span><br class="auto-style3" />
-<span class="auto-style3">Het is kwart over tien 10:16:00</span><br class="auto-style3" />
-<span class="auto-style3">Es war viertel nach zehn 10:17:00</span><br class="auto-style3" />
-<span class="auto-style3">It was quarter past ten 10:18:00</span><br class="auto-style3" />
-<span class="auto-style3">Il est dix heures vingt 10:19:00</span><br class="auto-style3" />
-<span class="auto-style3">Es ist zehn vor halb elf 10:20:00</span><br class="auto-style3" />
-<span class="auto-style3">Het is tien voor half elf 10:21:00</span><br class="auto-style3" />
-<span class="auto-style3">It was twenty past ten 10:22:00</span><br class="auto-style3" />
-<span class="auto-style3">It was twenty past ten 10:23:00</span><br class="auto-style3" />
-<span class="auto-style3">Het is vijf voor half elf 10:24:00</span><br class="auto-style3" />
-<span class="auto-style3">Es ist funf vor halb elf 10:25:00</span><br class="auto-style3" />
-<span class="auto-style3">It is twenty five past ten 10:26:00</span><br class="auto-style3" />
-<span class="auto-style3">Es war funf vor halb elf 10:27:00<br />
+<td style="width: 377px" valign="bottom"><span class="auto-style3"><br />
+</span><span class="auto-style11">Het was tien over tien&nbsp;&nbsp;&nbsp;&nbsp; 10:13:00</span><br class="auto-style11" />
+<span class="auto-style11">Il est dix heures et quart 10:14:00</span><br class="auto-style11" />
+<span class="auto-style11">Il est dix heures et quart 10:15:00</span><br class="auto-style11" />
+<span class="auto-style11">Het is kwart over tien&nbsp;&nbsp;&nbsp;&nbsp; 10:16:00</span><br class="auto-style11" />
+<span class="auto-style11">Es war viertel nach zehn&nbsp;&nbsp; 10:17:00</span><br class="auto-style11" />
+<span class="auto-style11">It was quarter past ten&nbsp;&nbsp;&nbsp; 10:18:00</span><br class="auto-style11" />
+<span class="auto-style11">Il est dix heures vingt&nbsp;&nbsp;&nbsp; 10:19:00</span><br class="auto-style11" />
+<span class="auto-style11">Es ist zehn vor halb elf&nbsp;&nbsp; 10:20:00</span><br class="auto-style11" />
+<span class="auto-style11">Het is tien voor half elf&nbsp; 10:21:00</span><br class="auto-style11" />
+<span class="auto-style11">It was twenty past ten&nbsp;&nbsp;&nbsp;&nbsp; 10:22:00</span><br class="auto-style11" />
+<span class="auto-style11">It was twenty past ten&nbsp;&nbsp;&nbsp;&nbsp; 10:23:00</span><br class="auto-style11" />
+<span class="auto-style11">Het is vijf voor half elf&nbsp; 10:24:00</span><br class="auto-style11" />
+<span class="auto-style11">Es ist funf vor halb elf&nbsp;&nbsp; 10:25:00</span><br class="auto-style11" />
+<span class="auto-style11">It is twenty five past ten 10:26:00</span><br class="auto-style11" />
+<span class="auto-style11">Es war funf vor halb elf&nbsp;&nbsp; 10:27:00</span><span class="auto-style3"><br />
 <br />
 </span></td>
 <td>
@@ -55,22 +53,22 @@ Het was tien over tien 10:13:00</span><br class="auto-style3" />
 </table>
 <br class="auto-style10" />
 </p>
-<p style="width: 840px" class="auto-style10"><strong>Introduction</strong><br />
-The ESP32-C3-12F is a cheap, versatile Micro Computer Unit (MCU). <br />
+<h2 style="width: 840px"><strong>Introduction</strong></h2>
+<p style="width: 840px" class="auto-style10">The ESP32-C3-12F is a cheap, versatile Micro Computer Unit (MCU). <br />
 Competitors at this moment, end 2022, I have played with are the Arduino MKR1010 
-and IOT 33, the Arduino RP2040 Connect and Raspberry Pico W.<br />
-The RP2040 Connect is my favorite while it pins are compatible with the Arduino 
-Nano / Every and my designed printed circuit boards (PCB) can still be used., it has a lot a memory and more than enough speed 
+and IOT33, the Arduino RP2040 Connect and Raspberry Pico W.<br />
+The RP2040 Connect is my favorite at the moment while it pins are compatible with the Arduino 
+Nano / Every and my designed printed circuit boards (PCB) can still be used, it has a lot a memory and more than enough speed 
 for my projects<br />
 A <a href="../Pocuter/PocuterWordClockV.html">kickstarter project</a> using the 
 ESP32-C3 with an OLED display forced me to study this architecture. <br />
 A piece of cake was my first thought and I started to convert the word clock 
 into the ESP-C3.<br />
-The source code for an Arduino also compiles and uploads with the Arduino IDE 
-for the ESP32-C3.<br />
-But almost all libraries are different and changing from 5V and 3.3V was needed.
+Source code for an Arduino also compiles and uploads with the Arduino IDE 
+in a ESP32-C3.<br />
+But many libraries are different and changing from 5V and 3.3V was needed.&nbsp;
 <br />
-The result is the program below.&nbsp; <br />
+The result is the program and design below.&nbsp; <br />
 Everything works and the time is displayed in words in the display.<br />
 The program's origin was a <a href="../Bouwpakket/WoordklokWitteLEDs.html">word 
 clock running with an ATMEGA328 </a>processor. The software was then converted 
@@ -79,10 +77,11 @@ RGB</a> LED-strips. Time was received with a DCF77 receiver.<br />
 <br />
 This ESP32-C3 program is able to connect to a NTP service on the internet and is 
 attached to an ILI9314 display to print the time as text. The ILI9341 colour display is, around €10, very cheap 
-but not very fast. For this clock it is not an issue<br />
+but not very fast. For this clock it is not an issue. When no connection is made 
+the clock runs on the internal RTC but will drift.<br />
 Settings can be changed via 
 Bluetooth on a phone or with a webpage in a browser. <br />
-In both cases no cloud 
+No cloud 
 service is used or needed to operate this clock.&nbsp;</p>
 <h2 style="width: 840px"><strong>Hardware</strong></h2>
 <p style="width: 840px" class="auto-style10"><strong>Materials<br />
@@ -91,6 +90,7 @@ service is used or needed to operate this clock.&nbsp;</p>
 - LDR (Light Dependent Resistor) type GL5516 or GL5528<br />
 - Resistors 1 kOhm, 10 kOhm and optional 22 kOhm<br />
 - 2N2222 or 2N3906 PNP transistor <strong><br />
+<br />
 </strong>
 <span class="auto-style10">- For IOS:&nbsp;
 <a href="https://apps.apple.com/nl/app/ble-serial-pro/id1632245655?l=en">BLE 
@@ -99,7 +99,7 @@ Serial Pro</a>. (Turn on Fast BLE with option Z in the menu)</span><br />
 <a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal">
 Serial Bluetooth terminal</a>. (Turn off (default) Fast BLE)</span></p>
 <p style="width: 840px" class="auto-style10">The program 
-'ESP32C3-WordClockV010.ino' or newer can be uploaded in the 
+'ESP32C3-WordClockV009.ino' or newer can be uploaded in the 
 ESP32-C3-12F with the Arduino IDE 1.8.19 or newer. The Arduino IDE 2.0.2 
 (November 2022) was not able to compile this program due to a bug in the IDE.<strong> 
 <br />
@@ -111,9 +111,9 @@ Add the string in Additional Boards Manager URLs in File-&gt; Preference of the 
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 </span><br />
 <br />
-</span>Restart the IDE and install the ESP32 boards<br />
+</span>Restart the IDE and install the ESP32 boards.<br />
 <br />
-Choose the ESP32C3 Dev Module' as board and set the partition scheme to huge'
+Choose the 'ESP32C3 Dev Module' as board and set the partition scheme to 'huge'
 <br />
 in the IDE menu --&gt; Tools.</p>
 <p style="width: 840px" class="auto-style10"><strong> <br />
@@ -133,12 +133,13 @@ luminosity and dims the LEDs or back light accordingly by PWM on the pin that
 powers the back light or changes the RGBW LED intensity in the software. <br />
 <br />
 If no LDR is attached 
-set the minimum light intensity to 250 in the menu and the maximum to 254.<br />
+set the minimum light intensity to 254 in the menu and the maximum to 255.<br />
 <br />
 The back light of the ILI9341 uses 50 - 100 mA and the pins of the ESP32-C3-12F 
 supply 12mA (or 40mA?). Therefore a 2N2222 PNP transistor is used. A BC327 did 
 not work. Probably 3V3 is too less to switch the transistor. A 2N3906 may also 
 work.<br />
+<br />
 Connect the 1 kOhm resistor to pin GPIO 01 that controls the intensity of the 
 backlight.<br />
 <br />
@@ -156,19 +157,20 @@ and slope in the menu the light intensity of the display can be controlled<br />
 <img alt="LDR schakeling" src="Pics/LDR.jpg" width="391" /></p>
 <p style="width: 840px" class="auto-style10">Connecting the LDR to GPIO 00 
 failed. The pin did not go low to 0V. It is used for WIFI?<br />
-Almost all&nbsp; the pins are used now. GPIO 03, 04, 05, 18 and 19 are used for the LEDs on 
-the MCU. GPIO 20 and 21 are probably used for the serial USB connection. <br />
+Almost all&nbsp; the pins are used now. <br />
+GPIO 03, 04, 05, 18 and 19 are used for the LEDs on 
+the MCU. GPIO 20 and 21 are probably used for the serial USB connection.
 &nbsp; <br />
 </p>
-<p style="width: 840px"><strong><span class="auto-style10">First Use</span><br class="auto-style10" />
-</strong><span class="auto-style10">When the MCU is started and running properly the LED on the 
+<h2 style="width: 840px"><strong><span class="auto-style10">First Use</span></strong></h2>
+<p style="width: 840px"><span class="auto-style10">When the MCU is started and running properly the LED on the 
 board will pulse red every second. 
 </span> 
 <br class="auto-style10" />
 <span class="auto-style10">When connected to WIFI&nbsp; the same led will also pulse green.&nbsp; 
 </span> <br class="auto-style10" />
 <span class="auto-style10">Press the
-the top right button to see the ip-address, time and date of the clock .
+the top right button to see the IP-address, time and date of the clock.
 </span>
 <br class="auto-style10" />
 <span class="auto-style10">Date and IP-address will disappear as a new minute starts.</span><br class="auto-style10" />
@@ -179,12 +181,10 @@ be entered. </span> <br class="auto-style10" />
 <br class="auto-style10" />
 <img alt="IP-address" src="Pics/img9.gif" class="auto-style10" /><br class="auto-style10" />
 </p>
-<p><span class="auto-style10"><strong>Control of the clock</strong>&nbsp;
-</span>
-<br class="auto-style10" />
-<br class="auto-style10" />
-<span class="auto-style10">If the clock is connected to the internet it will seek contact with a time 
-server. </span> <br class="auto-style10" />
+<h2><span class="auto-style10"><strong>Control of the clock</strong>&nbsp;
+</span></h2>
+<p><span class="auto-style10">If the clock is connected to the internet it will seek contact with a time 
+server. (NTP connection can be turned off in the menu). </span> <br class="auto-style10" />
 <span class="auto-style10">The time zone is set to UTC+1 Amsterdam but can be changed in the menu.</span><br class="auto-style10" />
 <span class="auto-style10">To connect to a WIFI network a SSID and password must be entered.</span><br class="auto-style10" />
 <span class="auto-style10"><br />
@@ -193,8 +193,8 @@ There are a few methods:</span><br class="auto-style10" />
 use the Arduino IDE or <a href="https://www.compuphase.com/software_termite.htm">
 Termite</a> as serial terminal.</span><br class="auto-style10" />
 <br class="auto-style10" />
-<span class="auto-style10">Sending the I for information will display the menu followed with the actual 
-settings of several preferences</span></p>
+<span class="auto-style10">Sending the character 'I' for information will display the menu followed with the actual 
+settings of several preferences.</span></p>
 <p>
 <table style="width: 51%" class="auto-style12">
 <tr>
@@ -228,14 +228,14 @@ Serial Bluetooth terminal</a>. <br />
 Turn off (default) Fast BLE in the menu.</span>
 </p>
 <p>
-<br class="auto-style10" /><span class="auto-style10">Start the 
+<span class="auto-style10">Start the 
 app and find the MCU in the list of devices and connect to it. You 
 can change it's beacon name in the menu with option C.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">In both cases 
 <strong>send the character I 
 of Information and the menu shows up</strong></span>.<br class="auto-style10" />
-<span class="auto-style10">Enter the first character of the setting you want to changes followed with a code.</span><br class="auto-style10" />
+<span class="auto-style10">Enter the first character of the setting you want to change followed with a code.</span><br class="auto-style10" />
 <span class="auto-style10">Some entries just toggle On and Off. Like the W to set WIFI Off or On. 
 </span> 
 </p>
@@ -243,9 +243,9 @@ of Information and the menu shows up</strong></span>.<br class="auto-style10" />
 <span class="auto-style10"><strong>A</strong></span><span class="auto-style7"><strong>my-ssid</strong></span><span class="auto-style10"> 
 and send this command. Eg AFRITZ!Box01 or aFRITZ!Box01. Starting with an upper 
 or lower case character is an identical instruction in the command string</span><br class="auto-style10" />
-<span class="auto-style10">Then&nbsp; <strong>B</strong></span><span class="auto-style1"><span class="auto-style10"><strong>my password</strong> and send that password.</span><br class="auto-style10" />
+<span class="auto-style10">Then&nbsp; <strong>B</strong></span><span class="auto-style1"><span class="auto-style10"><strong>my-password</strong> and send that password.</span><br class="auto-style10" />
 <span class="auto-style10">
-<strong>Cbroadcastname</strong>&nbsp; will change to name displayed in the Bluetooth 
+<strong>Cbroadcastname</strong>&nbsp;will change to name displayed in the Bluetooth 
 connection list.&nbsp; </span> <br class="auto-style10" />
 <span class="auto-style10">If the length of the SSID and/or password is less then 5 characters the WIFI 
 will be turned off automatically. This will speed up startup time if no internet connection is available</span><br class="auto-style10" />
@@ -255,43 +255,47 @@ will be turned off automatically. This will speed up startup time if no internet
 </span><br class="auto-style10" /><span class="auto-style10">Enter @ to reset the 
 MCU. It will restart and connections will be made.</span><br class="auto-style10" />
 <br class="auto-style10" />
-<span class="auto-style10">To set a time zone. Send the the time zone string between the quotes prefixed with 
+<span class="auto-style10">To set a time zone. Send the time zone string between the quotes prefixed with 
 the character E or e.</span><br class="auto-style10" />
 <span class="auto-style10">See the time zones at the bottom of this page.</span><br class="auto-style10" />
-<span class="auto-style10">For example; if you live in Australia/Sydney send the string, eAEST-10AEDT,M10.1.0,M4.1.0/3</span></p>
+<span class="auto-style10">For example; if you live in Australia/Sydney send the string: eAEST-10AEDT,M10.1.0,M4.1.0/3</span></p>
 </td>
 <td valign="bottom">
 <p class="auto-style10">&nbsp;</p>
-<pre><span class="auto-style10">A SSID B Password C BLE beacon name</span>
-<span class="auto-style10">D Set Date (D15012021)</span>
-<span class="auto-style10">E Set Timezone E&lt;-02&gt;2 or E&lt;+01&gt;-1</span>
-<span class="auto-style10">Make own colour of: (Hex RRGGBB)</span>
-<span class="auto-style10">F Font G Dimmed font H Bkgnd</span>
-<span class="auto-style10">I To print this Info menu</span>
-<span class="auto-style10">L L0 = NL, L1 = UK, L2 = DE</span>
-<span class="auto-style10">L3 = FR, L4 = Wheel</span>
-<span class="auto-style10">N Display off between Nhhhh (N2208)</span>
-<span class="auto-style10">O Display toggle On/Off</span>
-<span class="auto-style10">Q Display colour choice (Q0-6)</span>
-<span class="auto-style10">Q0 Yellow Q1 hourly</span>
-<span class="auto-style10">Q2 White Q3 All Own</span>
-<span class="auto-style10">Q4 Own Q5 Wheel</span>
-<span class="auto-style10">Q6 Digital display</span>
-<span class="auto-style10">R Reset settings @ = Reset MCU</span>
-<span class="auto-style10">T Set Time (T132145)</span>
-<span class="auto-style10">W=WIFI, X=NTP, Y=BLE, Z=Fast BLE</span>
-<span class="auto-style10">Ed Nieuwenhuys Okt 2022</span>
-<span class="auto-style10">___________________________________</span>
-<span class="auto-style10">Display off: 00h - 00h</span>
-<span class="auto-style10">Display choice: Wheel</span>
-<span class="auto-style10">SSID: FRITZ!BoxEd</span>
-<span class="auto-style10">BLE name: PocClockBlack</span>
-<span class="auto-style10">IP-address: 192.168.178.77</span>
-<span class="auto-style10">Timezone:CET-1CEST,M3.5.0,M10.5.0/3</span>
-<span class="auto-style10">WIFI=On NTP=On BLE=On Fast BLE=Off</span>
-<span class="auto-style10">Language choice: Rotate language</span>
-<span class="auto-style10">Software: ESP32C3WordClockV010.ino</span>
-<span class="auto-style10">___________________________________</span></pre>
+<pre>___________________________________
+A SSID B Password C BLE beacon name
+D Date (D15012021) T Time (T132145)
+E Timezone (E&lt;-02&gt;2 or E&lt;+01&gt;-1)
+Make own colour of: (Hex RRGGBB)
+F Font G Dimmed font H Bkgnd
+I To print this Info menu
+K LDR reads/sec toggle On/Off
+L L0 = NL, L1 = UK, L2 = DE
+L3 = FR, L4 = Wheel
+N Display off between Nhhhh (N2208)
+O Display toggle On/Off
+Q Display colour choice (Q0-6)
+Q0 Yellow Q1 hourly
+Q2 White Q3 All Own
+Q4 Own Q5 Wheel
+Q6 Digital display
+R Reset settings @ = Reset MCU
+Light intensity (1-250)
+S=Slope V=Min U=Max (S80 L5 M200)
+W=WIFI X=NTP Y=BLE Z=Fast BLE
+Ed Nieuwenhuys Nov 2022
+___________________________________
+Display off: 00h - 00h
+Display choice: Yellow
+SSID: FRITZ!BoxEd
+BLE name: ESPWordClock
+IP-address: 192.168.178.31
+Timezone:CET-1CEST,M3.5.0,M10.5.0/3
+WIFI=On NTP=On BLE=On FastBLE=On
+Language choice: Rotate language
+Software: ESp32C3-WordClockV009.ino
+09:27:22
+___________________________________</pre>
 </td>
 </tr>
 <tr>
@@ -299,25 +303,16 @@ the character E or e.</span><br class="auto-style10" />
 <td class="auto-style10">Menu shown in serial output.</td>
 </tr>
 </table>
-<p><span class="auto-style10">If there is no WIFI connection time and digital or word clock mode can be set with 
-the three buttons. </span> <br class="auto-style10" />
-<span class="auto-style10">Check at the bottom of the menu if WIFI is OFF. </span> 
+<p><span class="auto-style10">If no WIFI is not used check at the bottom of the menu if WIFI is OFF. </span> 
 <br class="auto-style10" />
 <span class="auto-style10">The clock will start much quicker because it 
 will not try to connect.</span><br class="auto-style10" />
 <img alt="Pocuter menu bottom" class="auto-style4" src="Pics/MenuBottom.gif" /></p>
-<p>
-<span class="auto-style10">Top 
-Left: + 1 hour</span>
-<span class="auto-style10">Right bottom: + 1 minute</span>
-<span class="auto-style10">Top Right: Toggle between word or digital display</span></p>
 <p><span class="auto-style10">As mentioned before the clock can be controlled with the WIFI webpage or BLE 
 UART terminal app.</span><br class="auto-style10" />
-<span class="auto-style10">When the clock is connected to WIFI the ip-address is displayed in the Digital display (Press 
-Top right button to select it).</span><br class="auto-style10" />
-<span class="auto-style10">Enter this ip-address numbers and dots (for example: 192.168.178.77) in the browser of your mobile or PC where you type 
+<span class="auto-style10">When the clock is connected to WIFI the IP-address is displayed in the Digital display.</span><br class="auto-style10" />
+<span class="auto-style10">Enter this IP-address numbers and dots (for example: 192.168.178.31) in the browser of your mobile or PC where you type 
 your internet addresses (URL).</span><br class="auto-style10" />
-<span class="auto-style10">or search items.</span><br class="auto-style10" />
 <span class="auto-style10">Or</span><br class="auto-style10" />
 <span class="auto-style10">Open the BLE terminal app. Look for the WordClock to connect to and connect.</span><br class="auto-style10" />
 <span class="auto-style10">BLE connection can be made with my app
@@ -329,16 +324,17 @@ store</a> for Apple IOS devices. </span> <br class="auto-style10" />
 <a href="https://play.google.com/store/apps/details?id=com.nordicsemi.nrfUARTv2&amp;hl=en&amp;gl=US"> 
 &nbsp;nRF UART terminal program </a>and
 <a href="https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal">
-Serial Bluetooth terminal from Kai Morich</a></span>
-<span class="auto-style10">Unfortunately this Android apps 
+Serial Bluetooth terminal</a>. <br />
+Unfortunately these Android apps 
 can not read strings longer than 20 characters.</span><br class="auto-style10" />
 <span class="auto-style10">If you see a garbled menu enter and send the character 'Z' to select the slower 
-transmission mode</span><br class="auto-style10" />
+transmission mode.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">
 <strong>Settings are set by entering the first character of a command following by 
 parameters if necessary.</strong></span>
-<span class="auto-style10">For example: To set the colours of the fonts in the display 
+<span class="auto-style10"><br />
+For example to set the colours of the characters in the display 
 to white enter: Q2</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">To shown random all four languages every minute send L4.</span><br class="auto-style10" />
@@ -364,49 +360,47 @@ to white enter: Q2</span><br class="auto-style10" />
 </tr>
 </table>
 </p>
-<p><span class="auto-style10"><strong>Detailed description</strong></span></p>
+<h2><span class="auto-style10"><strong>Detailed description</strong></span></h2>
 <pre>___________________________________
 A SSID B Password C BLE beacon name
 D Date (D15012021) T Time (T132145)
-E Timezone  (E&lt;-02&gt;2 or E&lt;+01&gt;-1)
-  Make own colour of:  (Hex RRGGBB)
-F Font  G Dimmed font H Bkgnd
+E Timezone (E&lt;-02&gt;2 or E&lt;+01&gt;-1)
+Make own colour of: (Hex RRGGBB)
+F Font G Dimmed font H Bkgnd
 I To print this Info menu
 K LDR reads/sec toggle On/Off
 L L0 = NL, L1 = UK, L2 = DE
-  L3 = FR, L4 = Wheel
+L3 = FR, L4 = Wheel
 N Display off between Nhhhh (N2208)
 O Display toggle On/Off
-Q Display colour choice      (Q0-6)
-  Q0 Yellow  Q1 hourly
-  Q2 White   Q3 All Own
-  Q4 Own     Q5 Wheel
-  Q6 Digital display
+Q Display colour choice (Q0-6)
+Q0 Yellow Q1 hourly
+Q2 White Q3 All Own
+Q4 Own Q5 Wheel
+Q6 Digital display
 R Reset settings @ = Reset MCU
 Light intensity (1-250)
-S=Slope V=Min  U=Max  (S80 L5 M200)
-W=WIFI  X=NTP  Y=BLE  Z=Fast BLE
+S=Slope V=Min U=Max (S80 L5 M200)
+W=WIFI X=NTP Y=BLE Z=Fast BLE
 Ed Nieuwenhuys Nov 2022
 ___________________________________
-     Display off: 00h - 00h
-  Display choice: Yellow
-            SSID: FRITZ!BoxEd
-        BLE name: ESPWordClock
-      IP-address: 192.168.178.31
+Display off: 00h - 00h
+Display choice: Yellow
+SSID: FRITZ!BoxEd
+BLE name: ESPWordClock
+IP-address: 192.168.178.31
 Timezone:CET-1CEST,M3.5.0,M10.5.0/3
- WIFI=On NTP=On BLE=On FastBLE=On
- Language choice: Rotate language
-Software: ESp32C3-WordClockV008.ino
-16:08:16</pre>
-<p>&nbsp;</p>
+WIFI=On NTP=On BLE=On FastBLE=On
+Language choice: Rotate language
+Software: ESp32C3-WordClockV009.ino
+09:27:22
+___________________________________</pre>
 <p>
-<br class="auto-style10" />
 <span class="auto-style10">With the menu many preferences can be set. <br />
 These preferences are permanently stored in the ESP32-C3 SPIFFS-storage space.</span><br class="auto-style10" />
 &nbsp;<br class="auto-style10" />
 <span class="auto-style10">Enter the first character in the menu of the item to be changed followed with the parameter.</span><br class="auto-style10" />
-<span class="auto-style10">For most entries upper and lower case are identical</span><br class="auto-style10" />
-<span class="auto-style10">Between the ( )</span><br class="auto-style10" />
+<span class="auto-style10">For most entries upper and lower case are identical.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">
 <strong>A SSID B Password C BLE beacon name</strong></span><br class="auto-style10" />
@@ -414,53 +408,53 @@ These preferences are permanently stored in the ESP32-C3 SPIFFS-storage space.</
 </span> <br class="auto-style10" />
 <span class="auto-style10">aFRITZ!BoxEd or AFRITZ!BoxEd</span><br class="auto-style10" />
 <span class="auto-style10">Then enter the password. For example: BSecret_pass</span><br class="auto-style10" />
-<span class="auto-style10">Restart the MCU by sending @ </span> 
-<br class="auto-style10" />
+<span class="auto-style10">Restart the MCU by sending @.</span><br class="auto-style10" />
 <span class="auto-style10">Entering a single 'b' will show the used password. This Easter egg can can used 
 to check if a valid password was entered</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">
 <strong>D Set Date</strong>&nbsp; and <strong>T Set Time</strong></span> 
 <br class="auto-style10" />
-<span class="auto-style10">If you are not connected to WIFI you have to set the time and date by hand</span><br class="auto-style10" />
+<span class="auto-style10">If you are not connected to WIFI you have to set the time and date by hand.</span><br class="auto-style10" />
 <span class="auto-style10">For example enter: D06112022 to set the date to 6 November 2022.</span></p>
-<p class="auto-style10">Enter for example T132145 (or 132145 , or t132145)&nbsp; to set the time to 45 seconds and 21 minute past 
+<p class="auto-style10">Enter for example T132145 (or 132145 , or t132145)&nbsp; to set the time to 45 seconds and 21 minutes past 
 one o'clock.</p>
 <p><span class="auto-style10"><strong>E Set Timezone E&lt;-02&gt;2 or E&lt;+01&gt;-1</strong></span><br class="auto-style10" />
 <span class="auto-style10">At the bottom of this page you can find the time zones used in 2022. 
 </span> <br class="auto-style10" />
 <span class="auto-style10">It is a rather complicated string and it is therefore wise to copy it.</span><br class="auto-style10" />
 <span class="auto-style10">Let's pick one if you happen to live here: Antarctica/Troll,"&lt;+00&gt;0&lt;+02&gt;-2,M3.5.0/1,M10.5.0/3"</span><br class="auto-style10" />
-<span class="auto-style10">Copy the string between the " "'s and send it with starting with an 'E' or 'e' in front.</span><br class="auto-style10" />
+<span class="auto-style10">Copy the string between the " " 's and send it starting with an 'E' or 'e' in front.</span><br class="auto-style10" />
 <span class="auto-style10">E&lt;+00&gt;0&lt;+02&gt;-2,M3.5.0/1,M10.5.0/3</span></p>
 <p><em><span class="auto-style10">Time zones and daylight savings should be ended and replaced by one universal 
-date and time for the while planet cq universe. </span> 
-<br class="auto-style10" />
-<span class="auto-style10">But that is my opinion.</span></em></p>
+date and time for the whole planet cq universe. But that is my opinion.</span></em></p>
 <p><strong><span class="auto-style10">Make own colour of: (Hex RRGGBB)</span><br class="auto-style10" />
 <span class="auto-style10">F Font G Dimmed font H Bkgnd</span></strong><br class="auto-style10" />
-<span class="auto-style10">You can set the colours of the highlighted and dimmed characters and&nbsp; the back ground</span><br class="auto-style10" />
-<span class="auto-style10">The time is shown with the colour defined with Font when Display choice Q3 or Q4 
-is chosen and the rest of the not highlighted characters are coloured with the setting in Dimmed 
+<span class="auto-style10">You can set the colours of the highlighted and dimmed characters and&nbsp;the background.</span><br class="auto-style10" />
+<span class="auto-style10">The time is shown with the colour defined when Display choice Q3 or Q4 
+is chosen and the rest of the not highlighted characters are coloured with the settings 
+from Dimmed 
 font.</span><br class="auto-style10" />
 <span class="auto-style10">The format to be entered is hexadecimal. 0123456789ABCDEF are the character that 
 can be used.</span><br class="auto-style10" />
-<span class="auto-style10">The command is 2 digits for Red followed with&nbsp; two for Green and ending 
+<span class="auto-style10">The command is 2 digits for Red followed with&nbsp;two 
+digits for Green and ending 
 with two digits for Blue. </span> <br class="auto-style10" />
 <span class="auto-style10">To colour the characters intense red enter FF0000 prefixed with the 
 character F, G 
 or H.</span><br class="auto-style10" />
 <span class="auto-style10">To set the background to intense blue enter: H0000FF</span><br class="auto-style10" />
-<span class="auto-style10">To set the dimmed character to dark gray enter for example: G191919. You get 
+<span class="auto-style10">To set the dimmed character to dark gray enter for example: G191919. 
+<br />
+You get 
 gray if red, green and blue has the same intensity.</span></p>
 <p><span class="auto-style10"><strong>I To print this Info menu</strong></span><br class="auto-style10" />
-<span class="auto-style10">Print the menu to Bluetooth and the serial monitor connected with an USB-cable</span><br class="auto-style10" />
+<span class="auto-style10">Print the menu to Bluetooth and the serial monitor 
+when connected with an USB-cable.</span><br class="auto-style10" />
 </p>
 <p class="auto-style10"><strong>K LDR reads/sec toggle On/Off<br />
-</strong>Shows the LDR-readings and the calculated intensity output to the 
-display </p>
+</strong>Prints the LDR-readings and the calculated intensity output.</p>
 <p>
-<br class="auto-style10" />
 <span class="auto-style10">
 <strong>L L0 = NL, L1 = UK, L2 = DE, L3 = FR, L4 = Wheel</strong></span><br class="auto-style10" />
 <span class="auto-style10">You can choose between four languages to display or show them randomly every 
@@ -468,13 +462,13 @@ minute.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">
 <strong>N Display off between Nhhhh (N2208)</strong></span><br class="auto-style10" />
-<span class="auto-style10">With N2208 the display will be turned off between 22:00 and 8:00.</span><br class="auto-style10" />
+<span class="auto-style10">With N2208 the display will be turned off between 22:00 and 
+08:00.</span><br class="auto-style10" />
 <br class="auto-style10" />
 <span class="auto-style10">
 <strong>O Display toggle On/Off</strong></span><br class="auto-style10" />
-<span class="auto-style10">O toggle the display off and on.</span></p>
-<p><br class="auto-style10" />
-<strong><span class="auto-style10">Q Display colour choice (Q0-6)</span><br class="auto-style10" />
+<span class="auto-style10">O toggles the display off and on.</span></p>
+<p><strong><span class="auto-style10">Q Display colour choice (Q0-6)</span><br class="auto-style10" />
 <span class="auto-style10">Q0 Yellow Q1 hourly
 Q2 White Q3 All Own
 Q4 Own Q5 Wheel
@@ -486,12 +480,11 @@ Q6 Digital display</span></strong><br class="auto-style10" />
 <span class="auto-style10">Q3 and Q4 uses you own defined colours.</span><br class="auto-style10" />
 <span class="auto-style10">Q5 will follow rainbow colours every minute.</span><br class="auto-style10" />
 <span class="auto-style10">Q6 is the digital display with the IP-address and date until seconds are 00.</span><br class="auto-style10" />
-<span class="auto-style10">You can also press the top right button.</span><br class="auto-style10" />
 <span class="auto-style10">The selected choice is displayed at the bottom of the menu.</span><br class="auto-style10" />
 <span class="auto-style10">Send an 'I' to display the latest's settings</span></p>
 <p><span class="auto-style10"><strong>R Reset settings </strong></span>
 <br class="auto-style10" />
-<span class="auto-style10">R will set all preferences to default settings, it also clears the SSID and password.</span></p>
+<span class="auto-style10">R will set all preferences to default settings and clears the SSID and password.</span></p>
 <p><span class="auto-style10"><strong>Light intensity (1-250)</strong></span><strong><br class="auto-style10" />
 </strong><span class="auto-style10"><strong>S=Slope V=Min&nbsp; U=Max&nbsp; 
 (S100 L5 M200)</strong></span></p>
@@ -500,10 +493,11 @@ Q6 Digital display</span></strong><br class="auto-style10" />
 <tr>
 <td><span class="auto-style10">To control the light intensity three parameters 
 can be set.</span><br class="auto-style10" />
-<span class="auto-style10">The values ranges between 0 and 255</span><br class="auto-style10" />
+<span class="auto-style10">The values ranges between 0 and 255.</span><br class="auto-style10" />
 <span class="auto-style10">The minimal light intensity is to avoid that the 
-display turns completely off when it is dark. It also prevents flickering when 
-the input value are very low. </span><br class="auto-style10" />
+display turns completely off when it is dark. <br />
+It also prevents flickering when 
+the input value are very low, like 2 and 3 bits. </span><br class="auto-style10" />
 <span class="auto-style10">Values ranging between 5 and 20 are suggested. When 
 no LDR is attached the Min value can be set to 255.<br />
 The maximum light intensity is 255 bits for 100% intensity. </span>
@@ -513,9 +507,7 @@ value is reached. <br />
 It multiplies the reading as a percentage. So, entering
 100 is a multiplication by one. <br />
 The placement and sensitivity of your LDR can be 
-adjusted with this parameter Slope.<br />
-<br />
-</span></td>
+adjusted with this parameter Slope.</span></td>
 <td><span class="auto-style10">
 <img alt="Min Max Slope" src="Pics/MinMaxSlope.jpg" /><br />
 The effect of the value of the slope on the light intensity of the LEDs 
@@ -523,20 +515,19 @@ or display.</span></td>
 </tr>
 </table>
 </p>
-<p>
-<strong><span class="auto-style10">@ = Restart MCU</span><br class="auto-style10" />
-</strong><span class="auto-style10">@ will restart the MCU. This is handy when the SSID, et cetera are 
-changed and the program must be restarted.</span></p>
 <table style="width: 100%">
 	<tr>
 		<td><span class="auto-style10">
-		<strong>W=WIFI, X=NTP, Y=BLE<br />
-		</strong></span><br class="auto-style10" />
-<span class="auto-style10">Toggle WIFI, NTP and BLE on and off.<br />
-		</span><br class="auto-style10" />
-<span class="auto-style10">Enter the character will toggle it on or off. <br />
+		<strong>@ = Restart MCU<br class="auto-style10" />
+		</strong>@ will restart the MCU. This is handy when the SSID, password, et cetera are 
+changed and the program must be restarted.<strong><br />
+		<br />
+		W=WIFI, X=NTP, Y=BLE<br />
+		</strong>Toggle WIFI, NTP and BLE on and off.<br />
+		Sending the character will toggle it on or off. <br />
 		At the bottom of the menu the 
-state is printed.</span></td>
+state is printed.<br />
+		</span></td>
 		<td>
 <img alt="Bottom menu" class="auto-style4" src="Pics/BottomMenu.gif" /></td>
 	</tr>
@@ -559,11 +550,8 @@ Settings are stored in the SPIFFS space from the ESP32-C3</p>
 		</td>
 	</tr>
 </table>
-<p>
-<br class="auto-style10" />
-</p>
-<p class="auto-style10">
-<strong>Compilation and uploading</strong></p>
+<h2>
+<strong>Compilation and uploading</strong></h2>
 <p class="auto-style10">The settings of the ESP32C3 board is as follows.<br />
 Partition scheme is huge.<br />
 Remember to install the ESP32 boards as explained above in the chapter Materials<br />
@@ -850,15 +838,12 @@ It works wonderfully well.<br />
 //--------------------------------------------</span> <span class="auto-style11">
 void DimLeds(bool print) { ... } </pre>
 </span><span class="auto-style10"><br />
-<br />
-</span>
-<br class="auto-style10" />
-<span class="auto-style10">Here we print and colour the characters in the 
+Here we print and colour the characters in the 
 display or light up to proper LEDs in a String of RGB(W) LEDs.<br />
 The #define executes this functions with the proper parameters for every 
 language and prints the texts in the serial connections.</span><span class="auto-style11"><br />
 #define QUARTER ColorLeds("quarter", 32, 38, 
-LetterColor); <br />
+LetterColor);
 </span><span class="auto-style10">
 <br />
 <pre><span class="auto-style11">//--------------------------------------------</span></span> <span class="auto-style10">/</span>
@@ -1029,11 +1014,12 @@ Functions to start a WIFI connection and use the webpage<br />
 </pre>
 <br />
 <br />
-<p class="auto-style10"><a href="../../email.html">@Ed Nieuwenhuys</a>, November 2022&nbsp;</p>
+<p class="auto-style10">@Ed Nieuwenhuys, November 2022&nbsp;</p>
 <p class="auto-style10">&nbsp;</p>
-<p><span class="auto-style10"><strong>Time zones</strong>. </span> 
+<h2><span class="auto-style10"><strong>Time zones</strong> </span> </h2>
+<p> 
 <br class="auto-style10" />
-<span class="auto-style10">Copy the text between the quotes and paste them after the character E 
+<span class="auto-style10">Copy the text <strong>between the quotes </strong>and paste them after the character E 
 </span> </p>
 
 <pre><span class="auto-style10">Africa/Abidjan,"GMT0"</span>
