@@ -60,7 +60,7 @@ and IOT33, the Arduino RP2040 Connect and Raspberry Pico W.<br />
 The RP2040 Connect is my favorite at the moment while it pins are compatible with the Arduino 
 Nano / Every and my designed printed circuit boards (PCB) can still be used, it has a lot a memory and more than enough speed 
 for my projects<br />
-A <a href="../Pocuter/PocuterWordClockV.html">kickstarter project</a> using the 
+A <a href="https://ednieuw.home.xs4all.nl/Pocuter/PocuterWordClockV.html">kickstarter project</a> using the 
 ESP32-C3 with an OLED display forced me to study this architecture. <br />
 A piece of cake was my first thought and I started to convert the word clock 
 into the ESP-C3.<br />
@@ -70,9 +70,9 @@ But many libraries are different and changing from 5V and 3.3V was needed.&nbsp;
 <br />
 The result is the program and design below.&nbsp; <br />
 Everything works and the time is displayed in words in the display.<br />
-The program's origin was a <a href="../Bouwpakket/WoordklokWitteLEDs.html">word 
+The program's origin was a <a href="https://ednieuw.home.xs4all.nl/Bouwpakket/WoordklokWitteLEDs.html">word 
 clock running with an ATMEGA328 </a>processor. The software was then converted 
-to be used with <a href="../Bouwpakket/WoordklokSK6812.htm">SK6812 RGBW</a> or<a href="../Bouwpakket/Woordklok-Kleur.htm">WS2812 
+to be used with <a href="https://ednieuw.home.xs4all.nl/Bouwpakket/WoordklokSK6812.htm">SK6812 RGBW</a> or<a href="https://ednieuw.home.xs4all.nl/Bouwpakket/Woordklok-Kleur.htm">WS2812 
 RGB</a> LED-strips. Time was received with a DCF77 receiver.<br />
 <br />
 This ESP32-C3 program is able to connect to a NTP service on the internet and is 
