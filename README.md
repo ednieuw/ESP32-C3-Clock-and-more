@@ -79,10 +79,8 @@ This ESP32-C3 program is able to connect to a NTP service on the internet and is
 attached to an ILI9314 display to print the time as text. The ILI9341 colour display is, around €10, very cheap 
 but not very fast. For this clock it is not an issue. When no connection is made 
 the clock runs on the internal RTC but will drift.<br />
-Settings can be changed via 
-Bluetooth on a phone or with a webpage in a browser. <br />
-No cloud 
-service is used or needed to operate this clock.&nbsp;</p>
+Settings can be changed via Bluetooth on a phone or with a webpage in a browser. <br />
+No cloud service is used or needed to operate this clock.&nbsp;</p>
 <h2 style="width: 840px"><strong>Hardware</strong></h2>
 <p style="width: 840px" class="auto-style10"><strong>Materials<br />
 - </strong>ESP32-C3-12F<br />
@@ -101,10 +99,10 @@ Serial Bluetooth terminal</a>. (Turn off (default) Fast BLE)</span></p>
 <p style="width: 840px" class="auto-style10">The program 
 'ESP32C3-WordClockV009.ino' or newer can be uploaded in the 
 ESP32-C3-12F with the Arduino IDE 1.8.19 or newer. The Arduino IDE 2.0.2 
-(November 2022) was not able to compile this program due to a bug in the IDE.<strong> 
+(November 2022) was not able to compile this program due to a bug in the IDE.<br /> 
+The libraries needed to compile can be installed with the Arduino IDE (Tools -> Manage libraries) or be copied from the V009LibsAndBuilt.zip in the folder 'libraries' located in the sketch book location folder of the IDE. <br />
 <br />
-<br />
-<img alt="Boardmanager" src="Pics/BoardURLs.jpg" /></strong></p>
+<img alt="Boardmanager" src="Pics/BoardURLs.jpg" /></p>
 <p style="width: 840px" class="auto-style10"><br />
 Add the string in Additional Boards Manager URLs in File-&gt; Preference of the IDE<strong><br />
 </strong><span class="auto-style11"><span class="auto-style13">
