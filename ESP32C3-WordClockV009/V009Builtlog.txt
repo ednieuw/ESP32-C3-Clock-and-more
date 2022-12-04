@@ -1,0 +1,23 @@
+Successfully created esp32c3 image.
+"C:\\Users\\ednie\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.5/tools/gen_esp32part.exe" -q "C:\\Users\\ednie\\AppData\\Local\\Temp\\arduino_build_534784/partitions.csv" "C:\\Users\\ednie\\AppData\\Local\\Temp\\arduino_build_534784/ESP32C3-WordClockV009.ino.partitions.bin"
+Multiple libraries were found for "WiFi.h"
+ Used: C:\Users\ednie\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.5\libraries\WiFi
+ Not used: C:\Users\ednie\Documents\Files\Arduino\libraries\WiFiNINA
+ Not used: C:\Users\ednie\Documents\Files\Arduino\libraries\WiFiEspAT
+ Not used: C:\Program Files (x86)\Arduino\libraries\WiFi
+Using library NimBLE-Arduino at version 1.4.1 in folder: C:\Users\ednie\Documents\Files\Arduino\libraries\NimBLE-Arduino 
+Using library ESPNTP in folder: C:\Users\ednie\Documents\Files\Arduino\libraries\ESPNTP (legacy)
+Using library WiFi at version 2.0.0 in folder: C:\Users\ednie\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.5\libraries\WiFi 
+Using library Ticker at version 2.0.0 in folder: C:\Users\ednie\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.5\libraries\Ticker 
+Using library AsyncTCP-master at version 1.1.1 in folder: C:\Users\ednie\Documents\Files\Arduino\libraries\AsyncTCP-master 
+Using library ESPAsyncWebServer-master at version 1.2.3 in folder: C:\Users\ednie\Documents\Files\Arduino\libraries\ESPAsyncWebServer-master 
+Using library FS at version 2.0.0 in folder: C:\Users\ednie\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.5\libraries\FS 
+Using library Preferences at version 2.0.0 in folder: C:\Users\ednie\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.5\libraries\Preferences 
+Using library Adafruit_ILI9341 at version 1.5.12 in folder: C:\Users\ednie\Documents\Files\Arduino\libraries\Adafruit_ILI9341 
+Using library Adafruit_GFX_Library at version 1.11.3 in folder: C:\Users\ednie\Documents\Files\Arduino\libraries\Adafruit_GFX_Library 
+Using library Adafruit_BusIO at version 1.14.1 in folder: C:\Users\ednie\Documents\Files\Arduino\libraries\Adafruit_BusIO 
+Using library Wire at version 2.0.0 in folder: C:\Users\ednie\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.5\libraries\Wire 
+Using library SPI at version 2.0.0 in folder: C:\Users\ednie\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.5\libraries\SPI 
+"C:\\Users\\ednie\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\riscv32-esp-elf-gcc\\gcc8_4_0-esp-2021r2-patch3/bin/riscv32-esp-elf-size" -A "C:\\Users\\ednie\\AppData\\Local\\Temp\\arduino_build_534784/ESP32C3-WordClockV009.ino.elf"
+Sketch uses 1003372 bytes (76%) of program storage space. Maximum is 1310720 bytes.
+Global variables use 42836 bytes (13%) of dynamic memory, leaving 284844 bytes for local variables. Maximum is 327680 bytes.
