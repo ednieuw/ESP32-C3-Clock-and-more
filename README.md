@@ -1,5 +1,5 @@
 <h1 class="auto-style10">ESP32-C3-12F Clock, HTML page, NTP, BLE to phone and more </h1>
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+[![Ednieuw GitHub stats](https://github-readme-stats.vercel.app/api?username=ednieuw)](https://github.com/anuraghazra/github-readme-stats)]
 
 <p><img alt="4-displays" src="Pics/4-displays.jpg" width="900" /></p>
 <p><span class="auto-style10">A small clock that displays the time in words in Dutch, English, French and 
