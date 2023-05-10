@@ -1,4 +1,4 @@
-<h1 class="auto-style10">ESP32-C3-12F Clock, HTML page, NTP, BLE to phone and more </h1>
+<h1 class="auto-style10">ESP32-C3-12F ESP32-S3 Word clock, HTML page, NTP, BLE to phone and more</h1>
 
 [![Ed's GitHub stats](https://github-readme-stats.vercel.app/api?username=ednieuw)](https://github.com/anuraghazra/github-readme-stats)
 
@@ -7,6 +7,8 @@
 German.<br />The clock is able to receive time 
 via NTP from the internet. <br />
 Settings can be controlled via a webpage, PC and Bluetooth LE.</span><br />
+Also info here: <a href="https://ednieuw.home.xs4all.nl/Woordklok/ESP32C3AndMore/ESP32C3ClockAndMoreV.html">  
+On my home page for the latest info</a>.	
 <p><span class="auto-style10">The clock is built with an ESP32-C3-12F kit.</span><br class="auto-style10" />
 <span class="auto-style10">The software is written with the Arduino IDE 1.8.19.</span><br class="auto-style10" />
 <br class="auto-style10" />
@@ -1013,7 +1015,7 @@ Functions to start a WIFI connection and use the webpage<br />
 </pre>
 <br />
 <br />
-<p class="auto-style10">@Ed Nieuwenhuys, November 2022&nbsp;</p>
+<p class="auto-style10">@Ed Nieuwenhuys, May 2023&nbsp;</p>
 <p class="auto-style10">&nbsp;</p>
 <h2><span class="auto-style10"><strong>Time zones</strong> </span> </h2>
 <p> 
