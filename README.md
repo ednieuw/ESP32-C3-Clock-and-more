@@ -25,6 +25,8 @@ intensity</span><br class="auto-style10" />
 <span class="auto-style10">9&nbsp;Four languages to display time<br />
 In V010 and higher.<br />
 10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock</span></p>
+In V016 and higher.<br />
+11 Analog clock.</span></p>
 <p style="width: 840px"><br class="auto-style10" />
 <table class="auto-style12">
 <tr>
