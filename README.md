@@ -27,6 +27,8 @@ In V010 and higher.<br />
 10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock</span></p>
 In V016 and higher.<br />
 11 Analog clock.</span></p>
+In V025 and higher.<br />
+12 OTA. Upgrade the software over the air without USB-cable </span></p>
 <p style="width: 840px"><br class="auto-style10" />
 <table class="auto-style12">
 <tr>
