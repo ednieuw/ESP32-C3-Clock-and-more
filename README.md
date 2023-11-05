@@ -4,31 +4,26 @@
 
 <p><img alt="4-displays" src="Pics/4-displays.jpg" width="900" /></p>
 <p><span class="auto-style10">A small clock that displays the time in words in Dutch, English, French and 
-German.<br />The clock is able to receive time 
-via NTP from the internet. <br />
+German.<br />The clock is able to receive time via NTP from the internet. <br />
 Settings can be controlled via a webpage, PC and Bluetooth LE.</span><br />
 Also info here: <a href="https://ednieuw.home.xs4all.nl/Woordklok/ESP32C3AndMore/ESP32C3ClockAndMoreV.html">  
 On my home page for the latest info</a>.	
 <p><span class="auto-style10">The clock is built with an ESP32-C3-12F kit.</span><br class="auto-style10" />
 <span class="auto-style10">The software is written with the Arduino IDE 1.8.19.</span><br class="auto-style10" />
 <br class="auto-style10" />
-<span class="auto-style10">The software of version V009 contains coding to use the:</span><br class="auto-style10" />
-<span class="auto-style10">1 ILI9314 colour display<br />
-2 BLE nRF UART connection with a phone with an option to send strings longer than 20 bytes</span><br class="auto-style10" />
-<span class="auto-style10">3 Time zone corrected time with daylight savings from a NTP server via WIFI</span><br class="auto-style10" />
-<span class="auto-style10">4 RGBCW LED control on the MCU board</span><br class="auto-style10" />
-<span class="auto-style10">5 RTC for time keeping when off line</span><br class="auto-style10" />
-<span class="auto-style10">6 LDR analogue readings&nbsp;and control of display 
-intensity</span><br class="auto-style10" />
-<span class="auto-style10">7 Storage of the settings in the ESP32-C3 SPIFSS Flash memory</span><br class="auto-style10" />
-<span class="auto-style10">8 Menu driven control of preferences with serial monitor, BLE and WIFI-html page</span><br class="auto-style10" />
-<span class="auto-style10">9&nbsp;Four languages to display time<br />
-In V010 and higher.<br />
-10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock</span></p>
-In V016 and higher.<br />
-11 Analog clock.</span></p>
-In V025 and higher.<br />
-12 OTA. Upgrade the software over the air without USB-cable </span></p>
+<span class="auto-style10">The software contains coding to use:</span><br class="auto-style10" />
+1 ILI9314 colour display</br>
+2 BLE nRF UART connection with a phone with an option to send strings longer than 20 bytes</br>
+3 Time zone corrected time with daylight savings from a NTP server via WIFI</br>
+4 RGBCW LED control on the MCU board</br>
+5 RTC for time keeping when off line</br>
+6 LDR analogue readings&nbsp;and control of display intensity</br>
+7 Storage of the settings in the ESP32-C3 SPIFSS Flash memor</br>
+8 Menu driven control of preferences with serial monitor, BLE and WIFI-html page</br>
+9&nbsp;Four languages to display time</br>
+10 SK6812 RGBW /WS2812 RGB LED strip support to make a word clock</br>
+11 Analog clock.</br>
+12 OTA. Upgrade the software over the air without USB-cable</br> </span></p>
 <p style="width: 840px"><br class="auto-style10" />
 <table class="auto-style12">
 <tr>
