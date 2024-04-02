@@ -161,6 +161,8 @@ Almost all&nbsp; the pins are used now. <br />
 GPIO 03, 04, 05, 18 and 19 are used for the LEDs on 
 the MCU. GPIO 20 and 21 are probably used for the serial USB connection.
 &nbsp; <br />
+![image](https://github.com/ednieuw/ESP32-C3-Clock-and-more/assets/12166816/eb915904-bcdf-4f7f-8aaf-7c717bfb3bea)
+
 </p>
 <h2 style="width: 840px"><strong><span class="auto-style10">First Use</span></strong></h2>
 <p style="width: 840px"><span class="auto-style10">When the MCU is started and running properly the LED on the 
